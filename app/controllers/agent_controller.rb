@@ -8,6 +8,10 @@ class AgentController < ApplicationController
   end
 
   def home
+    if current_user.nil?
+      redirect_to user_sessions_new_path
+      return
+    end
     @group = current_user.groups.first
     if !@group.nil?
       @group_id=@group.id
