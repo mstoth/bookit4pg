@@ -4,6 +4,12 @@ gem 'rails', '3.2.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'therubyracer'
+  gem 'uglifier'
+end
 
 gem 'pg'
 gem 'rails3-generators'
