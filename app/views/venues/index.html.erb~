@@ -1,0 +1,49 @@
+<h1>Listing venues</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Contact</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Street1</th>
+    <th>Street2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Budget</th>
+    <th>Vpic file name</th>
+    <th>Vpic content type</th>
+    <th>Vpic file size</th>
+    <th>Vpic updated at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @venues.each do |venue| %>
+  <tr>
+    <td><%= venue.name %></td>
+    <td><%= venue.contact %></td>
+    <td><%= venue.phone %></td>
+    <td><%= venue.email %></td>
+    <td><%= venue.street1 %></td>
+    <td><%= venue.street2 %></td>
+    <td><%= venue.city %></td>
+    <td><%= venue.state %></td>
+    <td><%= venue.zip %></td>
+    <td><%= venue.budget %></td>
+    <td><%= venue.vpic_file_name %></td>
+    <td><%= venue.vpic_content_type %></td>
+    <td><%= venue.vpic_file_size %></td>
+    <td><%= venue.vpic_updated_at %></td>
+    <td><%= link_to 'Show', venue %></td>
+    <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
+    <td><%= link_to 'Destroy', venue, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Venue', new_venue_path %>

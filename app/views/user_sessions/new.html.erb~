@@ -1,0 +1,11 @@
+<div id="login_form">
+<%= form_for @user_session, :url => :home do |f| %>
+<%= f.error_messages %>
+Enter your login and password to sign in.
+<table class="center"><tr><td><%= f.label :login %></td><td>
+<%= f.text_field :login %></td></tr><tr><td>
+<%= f.label :password %></td><td>
+<%= f.password_field :password %></td></tr></table>
+<%= f.submit "SIGN IN" %>
+<% end %>
+</div>

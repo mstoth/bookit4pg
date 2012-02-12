@@ -1,0 +1,16 @@
+<div class="form_heading">
+<br/><br/>
+Concerts Near You
+</div>
+<% if @venue.nil? %>
+venue is nil
+<% end %>
+<table class="center">
+<tr><td colspan="4" align="center">
+
+<%= select_tag :venue_id, 
+	options_from_collection_for_select(@my_venues,:id,:name,@venue.id), :id=>"venue_select", :remote=>true %>
+</td></tr>
+</table>
+
+<%= render "clist", :locals=>{:my_venues=>@my_venues, :concerts=>@concerts, :venue=>@venue} %>

@@ -1,0 +1,80 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @group.title %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%= @group.contact %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @group.phone %>
+</p>
+
+<p>
+  <b>Street1:</b>
+  <%= @group.street1 %>
+</p>
+
+<p>
+  <b>Street2:</b>
+  <%= @group.street2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @group.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @group.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @group.zip %>
+</p>
+
+<p>
+  <b>Picture file name:</b>
+  <%= @group.picture_file_name %>
+</p>
+
+<p>
+  <b>Picture content type:</b>
+  <%= @group.picture_content_type %>
+</p>
+
+<p>
+  <b>Picture updated at:</b>
+  <%= @group.picture_updated_at %>
+</p>
+
+<p>
+  <b>Picture file size:</b>
+  <%= @group.picture_file_size %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @group.website %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @group.email %>
+</p>
+
+<p>
+  <b>Locked:</b>
+  <%= @group.locked %>
+</p>
+
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>

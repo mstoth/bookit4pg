@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bookit4pg</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "vba" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "vba" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="heading">
+	<div id="leftside">
+	<%=link_to "Home", :home %>
+	<% if !current_user.nil? %>
+	  <%=link_to "Logout", :logout  %>
+	<% else %> 
+	  <%=link_to "Login", :login  %>
+	<% end %>
+	<% if Group.all.length > 0 %>
+	<%= image_tag Group.first.picture.url(:medium) %>
+	<br/><div style="text-align:center"><%= Group.first.title %></div>
+	<iframe src="http://www.facebook.com/plugins/like.php?href=http://virtualbookingagent.com"
+	        scrolling="no" frameborder="0"
+	        style="border:none; width:450px; height:80px"></iframe>
+	<% end %>
+	</div>
+	<div id="centertext">
+	<% if current_user.nil? %>
+	Virtual Booking Agent 
+	<% else %>
+	Virtual Booking Agent - Logged in as <%=current_user.login%>
+	<% end %>
+	</div>
+	<div id="rightside">
+	<%= link_to "About", :about %>
+	<%= link_to "Help", :help %>
+	<script>function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}</script><style> html .fb_share_button { display: -moz-inline-block; display:inline-block; padding:1px 20px 0 5px; height:15px; border:1px solid #d8dfea; background:url(http://static.ak.facebook.com/images/share/facebook_share_icon.gif?6:26981) no-repeat top right; } html .fb_share_button:hover { color:#fff; border-color:#295582; background:#3b5998 url(http://static.ak.facebook.com/images/share/facebook_share_icon.gif?6:26981) no-repeat top right; text-decoration:none; } </style> <a rel="nofollow" href="http://www.facebook.com/share.php?u=<;url>" class="fb_share_button" onclick="return fbs_click()" target="_blank" style="text-decoration:none;">Share</a> 
+	<% if Venue.all.length > 0 %>
+	<% if !Venue.first.vpic_file_name.nil? %>
+<%= image_tag Venue.first.vpic.url(:medium) %>
+<br/><div style="text-align:center"><%= Venue.first.name %></div>
+<% end %>	
+	<% end %>
+	</div>
+	</div>
+
+<%= yield %>
+
+</body>
+</html>

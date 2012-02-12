@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<table class="center"><tr><td>
+<p>
+  <b>Title:</b>
+  <%= @concert.title %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @concert.date %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @concert.price %>
+</p>
+
+<p>
+  <b>Venue:</b>
+  <%=h Venue.find(@concert.venue_id).name %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%= Group.find(@concert.group_id).title %>
+</p>
+
+<p>
+  <b>Webpage:</b>
+  <%= @concert.webpage %>
+</p>
+</td></tr></table>
+<br/>
+<div id="footerlinks">
+<%= link_to 'Edit', edit_concert_path(@concert) %> |
+<%= link_to 'Back', concerts_path %>
+</div>

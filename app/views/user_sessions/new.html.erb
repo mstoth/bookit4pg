@@ -1,0 +1,26 @@
+<div id="login_form">
+<%= form_for @user_session, :url => user_sessions_path do |f| %>
+<% if @user_session.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user_session.errors.count, "error") %> prohibited this concert from being saved:</h2>
+
+    <ul>
+    <% @user_session.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="form_heading"><br/><br/>
+Enter your login and password to sign in.
+</div><br/>
+<table class="center"><tr><td align="right"><%= f.label 'Login: ' %></td><td>
+<%= f.text_field :login %></td></tr><tr><td align="right">
+<%= f.label 'Password: ' %></td><td>
+<%= f.password_field :password %></td></tr></table>
+<%= f.submit "SIGN IN" %>
+<% end %>
+</div>
+<div id="notes">
+Not signed in yet? <%= link_to "Register Here",'/users/new' %>. It's free.
+</div>

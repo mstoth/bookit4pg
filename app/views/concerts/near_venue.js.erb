@@ -1,0 +1,13 @@
+
+  $("#venue_select").click(function() {
+
+    var id = $(this).val();
+
+    $.ajax({
+      type:     "GET",  # or whatever http method you need
+      url:      "/concerts/near_venue?id=" + id;
+      dataType: "script"
+    });
+    return false;
+  });
+

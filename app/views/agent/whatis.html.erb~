@@ -1,0 +1,12 @@
+<div class="form_heading">
+<br/><br/>
+Agent#help</div>
+
+
+<div id="notes">
+Virtual Booking Agent is a tool to help performers and venues get together. </br></br>
+When performers have a concert they want to offer, they put information about it here and
+venues can receive email about the offer as well as come search for what concerts are being offered in their area.  
+<br/><br/>
+<%= link_to "Back to Help",'/agent/help' %>
+</div>

@@ -1,0 +1,16 @@
+
+
+var id = $(this).val();
+
+alert("hi");
+
+$.ajax({
+  url:  "/venues/" + id.toString() + "/concerts_near",
+  context: document.body,
+  success: function(s,x){
+    $(this).html(s);
+  }
+
+});
+
+

@@ -1,0 +1,100 @@
+
+.heading { 
+  background-color:lightblue; 
+  height:50px; width:100%; }
+.heading #leftside { float:left; 
+  width:25%; height:50px; 
+  background-color:silver;}
+.heading #leftside img { margin-top:40px; width:100% }
+.heading #rightside img { margin-top:40px; width:100% }
+.heading #centertext { height:50px; 
+  float:left; text-align:center; 
+  width:50%; }
+.heading a {   
+  margin-left:20px; 
+  font-size:18pt;
+  font-family:Arnoldboecklin, fantasy; 
+  position:relative;
+  top:20px;
+  vertical-align:text-bottom;
+ }
+
+.heading #rightside {  
+  float:right; 
+  height:50px; width:25%; 
+  background-color:silver;}
+.heading #centertext { 
+  margin-top:20px;
+  font-size:18pt;
+  font-family:Arnoldboecklin, fantasy; 
+ }
+.heading table { padding:10px; }
+
+.form_heading { 
+  font-family:Arnoldboecklin, fantasy; 
+  font-size:16pt; 
+  text-align:center;
+  color:blue;
+ }
+
+#notes { 
+  padding:20px;
+  line-height:2em;
+  border-color:blue;
+  border-style:solid;
+  margin-top:40px;
+  margin-left:28%;
+  margin-right:28%;
+  font-size:14pt;
+  font-family:Arnoldboecklin, fantasy; 
+
+ }
+
+#notice { text-align:center; }
+.venue_form {  margin-left:28%; width:50%; text-align:left; position:relative; top:10px; }
+#login_form { text-align:center; position:relative; top:10px; }
+
+#edit_form { text-align:center }
+h4 { text-align:center }
+
+#submit {
+	text-align:center;
+}
+#footerlinks  { 
+  font-family:Arnoldboecklin, fantasy; 
+  font-size:16pt; 
+  text-align:center;
+}
+
+table.home { 
+  width:45%;
+  margin-left:auto; 
+  margin-right:auto;
+  font-family:Arnoldboecklin, fantasy; 
+  font-size:16pt; 
+  text-align:center;
+  padding:10px;
+ }
+
+table.home td { 
+  text-align:center;
+  font-family:Arnoldboecklin, fantasy; 
+  font-size:16pt; 
+  text-align:center;
+  padding:10px;
+ }
+
+table.center label { text-align:right; }
+table.center td {
+  font-family:Arnoldboecklin, fantasy; 
+  font-size:14pt; 
+}
+table.center {
+  width:45%;
+  margin-left:auto; 
+  margin-right:auto;
+}
+
+.addressfield { 
+  float:right;
+}

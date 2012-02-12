@@ -1,0 +1,27 @@
+<div class="form_heading">
+<br/>
+<br/>
+Users
+</div>
+
+
+<table class="center">
+  <tr>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users_list.each do |u| %>
+  <tr>
+    <td><%= u.email %></td>
+    <td><%= link_to 'Show', u %></td>
+    <td><%= link_to "Delete", concert_path(concert), :method=>:delete, :confirm=>"Are you sure?", :remote=>:true, :class=>"alert" %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<div id="footerlinks">
+<%= link_to 'New Concert', new_concert_path %>
+</div>

@@ -1,0 +1,26 @@
+<div class="form_heading">
+<br/>
+<br/>
+Concerts
+</div>
+
+
+<table class="center">
+  <tr>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @concerts.each do |u| %>
+  <tr>
+    <td><%= u.email %></td>
+    <td><%= link_to 'Show', u %></td>
+    <td><%= link_to "Delete", c, :method=>:delete, :confirm=>"Are you sure?", :remote=>:true, :class=>"alert" %>
+  </tr>
+<% end %>
+</table>
+
+<div id="footerlinks">
+<%= link_to 'Back','/admins/index' %>
+</div>

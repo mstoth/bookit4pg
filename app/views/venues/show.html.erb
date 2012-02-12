@@ -1,0 +1,65 @@
+<br/>
+<p id="notice"><%= notice %></p>
+<div class="venue_form">
+<br/>
+<p>
+  <b>Name:</b>
+  <%= @venue.name %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%= @venue.contact %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @venue.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @venue.email %>
+</p>
+
+<p>
+  <b>Street1:</b>
+  <%= @venue.street1 %>
+</p>
+
+<p>
+  <b>Street2:</b>
+  <%= @venue.street2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @venue.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @venue.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @venue.zip %>
+</p>
+
+<p>
+  <b>Budget:</b>
+  <%= @venue.budget %>
+</p>
+
+<p>
+  <b>Picture file name:</b>
+  <%= @venue.vpic_file_name %>
+</p>
+
+<br/>
+</div>
+<div id="footerlinks">
+<%= link_to 'Edit', edit_venue_path(@venue) %> |
+<%= link_to 'Back', venues_path %>
+</div>

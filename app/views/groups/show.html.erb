@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+
+<table class="center">
+<tr><td>
+  <b>Title:</b>
+</td><td>
+  <%= @group.title %>
+</td></tr>
+<tr><td>
+  <b>Contact:</b>
+</td><td>
+  <%= @group.contact %>
+</td></tr>
+<tr><td>
+  <b>Phone:</b>
+</td><td>
+  <%= @group.phone %>
+</td></tr>
+<tr><td>
+  <b>Street1:</b>
+</td><td>
+  <%= @group.street1 %>
+</td></tr>
+<tr><td>
+  <b>Street2:</b>
+</td><td>
+  <%= @group.street2 %>
+</td></tr>
+<tr><td>
+  <b>City:</b>
+</td><td>
+  <%= @group.city %>
+</td></tr>
+<tr><td>
+  <b>State:</b>
+</td><td>
+  <%= @group.state %>
+</td></tr>
+<tr><td>
+  <b>Zip:</b>
+</td><td>
+  <%= @group.zip %>
+</td></tr>
+<tr><td>
+  <b>Picture file name:</b>
+</td><td>
+  <%= @group.picture_file_name %>
+</td><td>
+<% if @group.picture.exists? %>
+  <%= image_tag @group.picture.url(:thumb) %>
+<% end %>
+</td></tr>
+<tr><td>
+  <b>Website:</b>
+</td><td>
+  <%= @group.website %>
+</td></tr>
+<tr><td>
+  <b>Email:</b>
+</td><td>
+  <%= @group.email %>
+</td></tr>
+<tr><td>
+  <b>Locked:</b>
+</td><td>
+  <%= @group.locked %>
+</td></tr>
+</table>
+
+<div id="footerlinks">
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
+</div>

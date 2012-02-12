@@ -1,0 +1,16 @@
+
+<table class="center">
+<% @concerts.each do |c| %>
+<tr>
+<td>
+<%= c.title %>
+</td>
+<td>
+<%= Group.find(c.group_id).title %>
+</td>
+<td>
+<%= link_to 'Concert Description',c.webpage %>
+</td>
+</tr>
+<% end %>
+</table>

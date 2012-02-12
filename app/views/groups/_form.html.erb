@@ -1,0 +1,76 @@
+<%= form_for(@group, :html=>{:multipart=>true}) do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+n      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table class="center">
+<tr><td align="right">
+    <%= f.label :title %></td><td>
+    <%= f.text_field :title %>
+</td></tr>
+<tr><td align="right">
+    <%= f.label :contact %></td><td>
+    <%= f.text_field :contact %>
+</td></tr>
+<tr><td align="right">
+    <%= f.label :phone %></td><td>
+    <%= f.text_field :phone %>
+</td></tr>
+<tr><td align="right">
+    <%= f.label :street1 %></td><td>
+    <%= f.text_field :street1 %>
+</td></tr>
+<tr><td align="right">
+    <%= f.label :street2 %></td><td>
+   <%= f.text_field :street2 %>
+</td></tr>
+<tr><td align="right">
+    <%= f.label :city %></td><td>
+    <%= f.text_field :city %>
+</td></tr>
+<tr><td align="right">
+
+    <%= f.label :state %></td><td>
+    <%= f.text_field :state %>
+</td></tr>
+<tr><td align="right">
+
+    <%= f.label :zip %></td><td>
+    <%= f.text_field :zip %>
+</td></tr>
+<tr><td align="right">
+    <%= f.label :picture %></td><td>
+    <%= f.file_field :picture %>
+</td></tr>
+<tr><td align="right">
+    <%= f.label "Picture Thumbnail: " %></td><td>
+<% if @group.picture.exists? then %>
+	<%= image_tag @group.picture.url(:thumb) %>
+<% end %>
+</td></tr>
+<tr><td align="right">
+    <%= f.label :website %></td><td>
+    <%= f.text_field :website %>
+</td></tr>
+<tr><td align="right">
+    <%= f.label :email %></td><td>
+    <%= f.text_field :email %>
+</td></tr>
+<tr><td align="right">
+    <%= f.label :locked %></td><td>
+    <%= f.check_box :locked %>
+</td></tr>
+<tr><td>
+
+    <%= f.submit %>
+</td></tr></table>
+
+<% end %>

@@ -1,0 +1,40 @@
+<table class="home">
+<tbody>
+<tr>
+<% if @venue_id.nil? %>
+<td>You are not a venue</td>
+<% else %>
+<td style="vertical-align: top;"><%= link_to "Concerts Offered Near Me", concerts_near_path(@venue_id) %><br>
+</td>
+<% end %>
+<td style="vertical-align: top;"><%= link_to "Manage My Venues", venues_path %><br>
+</td>
+</tr>
+<tr>
+<% if @group_id.nil? %>
+<td>You have no groups</td>
+<% else %>
+<td style="vertical-align: top;"><%= link_to "Venues Near Me", venues_path %><br>
+</td>
+<% end %>
+<% if @group_id.nil? %>
+<td>You have no groups</td>
+<% else %>
+<td style="vertical-align: top;"><%= link_to "Manage My Concerts", concerts_path %><br>
+</td>
+<% end %>
+</tr>
+<tr>
+<td style="vertical-align: top;"><%= link_to "Manage My Profile", current_user %><br>
+</td>
+<td style="vertical-align: top;"><%= link_to "Manage My Groups", groups_path %><br/>
+</td>
+</tr>
+</tbody>
+</table>
+
+<% if @group_id.nil? && @venue_id.nil? %>
+<div id="notes">
+You should either add a group if you are a performer or add a venue if you are a performing venue. 
+</div>
+<% end %>

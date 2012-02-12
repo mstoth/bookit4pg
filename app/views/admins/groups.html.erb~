@@ -1,0 +1,26 @@
+<div class="form_heading">
+<br/>
+<br/>
+Groups
+</div>
+
+
+<table class="center">
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @groups.each do |u| %>
+  <tr>
+    <td><%= u.title %></td>
+    <td><%= link_to 'Show', u %></td>
+    <td><%= link_to "Delete", users_path(u), :method=>:delete, :confirm=>"Are you sure?", :remote=>:true, :class=>"alert" %>
+  </tr>
+<% end %>
+</table>
+
+<div id="footerlinks">
+<%= link_to 'Back','/admins/index' %>
+</div>

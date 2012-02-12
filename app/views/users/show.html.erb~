@@ -1,0 +1,17 @@
+Login: <%=h @user.login %>
+
+Login count: <%=h @user.login_count %>
+
+Last request at: <%=h @user.last_request_at %>
+
+Last login at: <%=h @user.last_login_at %>
+
+Current login at: <%=h @user.current_login_at %>
+
+Last login ip: <%=h @user.last_login_ip %>
+
+Current login ip: <%=h @user.current_login_ip %>
+
+<%= link_to 'Edit', edit_account_path %> |
+
+<%= link_to 'Logout', :logout %>

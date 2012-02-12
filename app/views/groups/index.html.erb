@@ -1,0 +1,40 @@
+<div class="form_heading"><br/><br/>Your groups</div>
+
+<table class="center">
+  <tr>
+    <th>Title</th>
+    <th>Contact</th>
+    <th>Phone</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Picture file name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @groups.each do |group| %>
+  <tr>
+    <td><%= group.title %></td>
+    <td><%= group.contact %></td>
+    <td><%= group.phone %></td>
+    <td><%= group.city %></td>
+    <td><%= group.state %></td>
+    <td><%= group.picture_file_name %></td>
+    <td><%= link_to 'Show', group %></td>
+    <td><%= link_to 'Edit', edit_group_path(group) %></td>
+    <td><%= link_to 'Destroy', group, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<div id="footerlinks">
+<%= link_to 'New Group', new_group_path %>
+</div>
+
+<% if @groups.count == 0 %>
+<div id="notes">
+You can have more than one group. 
+</div>
+<% end %>

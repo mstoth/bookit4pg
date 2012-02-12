@@ -1,0 +1,11 @@
+
+  $("#venue_select").click(function() {
+    var id = $(this).val();
+
+    $.ajax({
+      type:     "GET",  
+	  url:  "/venues/" + id.toString() + "/concerts_near",
+	  dataType: "script"
+	  });
+    return false;
+   });

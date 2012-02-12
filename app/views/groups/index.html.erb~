@@ -1,0 +1,51 @@
+<h1>Listing groups</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Contact</th>
+    <th>Phone</th>
+    <th>Street1</th>
+    <th>Street2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Picture file name</th>
+    <th>Picture content type</th>
+    <th>Picture updated at</th>
+    <th>Picture file size</th>
+    <th>Website</th>
+    <th>Email</th>
+    <th>Locked</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @groups.each do |group| %>
+  <tr>
+    <td><%= group.title %></td>
+    <td><%= group.contact %></td>
+    <td><%= group.phone %></td>
+    <td><%= group.street1 %></td>
+    <td><%= group.street2 %></td>
+    <td><%= group.city %></td>
+    <td><%= group.state %></td>
+    <td><%= group.zip %></td>
+    <td><%= group.picture_file_name %></td>
+    <td><%= group.picture_content_type %></td>
+    <td><%= group.picture_updated_at %></td>
+    <td><%= group.picture_file_size %></td>
+    <td><%= group.website %></td>
+    <td><%= group.email %></td>
+    <td><%= group.locked %></td>
+    <td><%= link_to 'Show', group %></td>
+    <td><%= link_to 'Edit', edit_group_path(group) %></td>
+    <td><%= link_to 'Destroy', group, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Group', new_group_path %>
