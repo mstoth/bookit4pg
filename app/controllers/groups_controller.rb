@@ -1,4 +1,10 @@
 class GroupsController < ApplicationController
+  
+  # GET /groups/join
+  def join
+    @groups = Group.where(:locked=>false)
+  end
+
   # GET /groups
   # GET /groups.xml
   def index

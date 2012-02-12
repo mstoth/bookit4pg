@@ -7,6 +7,18 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def join_group
+    gid=params[:id]
+    g=Group.find(gid)
+    if current_user.groups.include? g
+      redirect_to :home, :notice=>'You are already a member of this group.'
+    else
+      current_user.groups << g
+      current_user.save
+      redirect_to :home, :notice=>"You have joined #{g.title}"
+    end    
+  end
+  
   def create
     @user = User.new(params[:user])
     if @user.save

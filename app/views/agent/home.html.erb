@@ -1,3 +1,6 @@
+<br/><br/><p id="notice"><%= notice %></p>
+
+
 <table class="home">
 <tbody>
 <tr>
@@ -10,13 +13,9 @@
 <td style="vertical-align: top;"><%= link_to "Manage My Venues", venues_path %><br>
 </td>
 </tr>
+
 <tr>
-<% if @group_id.nil? %>
-<td></td>
-<% else %>
-<td style="vertical-align: top;"><br>
-</td>
-<% end %>
+<td><%= link_to "Join a Group", '/groups/join' %></td>
 <% if current_user.groups.length == 0 %>
 <td></td>
 <% else %>
@@ -24,6 +23,7 @@
 </td>
 <% end %>
 </tr>
+
 <tr>
 <td style="vertical-align: top;"><%= link_to "Manage My Profile", current_user %><br>
 </td>
@@ -32,7 +32,12 @@
 </tr>
 </tbody>
 </table>
-
+<div id="notes">	
+	Number of Concerts: <%= current_user.my_concerts.length %><br/>
+	Number of Groups: <%= current_user.groups.length %> <br/>
+	Number of Venues: <%= current_user.venues.length %><br/>
+</div>	
+	
 <% if @group_id.nil? && @venue_id.nil? %>
 <div id="notes">
 You should either add a group if you are a performer or add a venue if you are a performing venue. 

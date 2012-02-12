@@ -50,7 +50,11 @@
 
  }
 
-#notice { text-align:center; }
+#notice { text-align:center; 
+	font-size:14pt;
+  font-family:Arnoldboecklin, fantasy; 
+  
+	}
 .venue_form {  margin-left:28%; width:50%; text-align:left; position:relative; top:10px; }
 #login_form { text-align:center; position:relative; top:10px; }
 
@@ -60,9 +64,16 @@ h4 { text-align:center }
 #submit {
 	text-align:center;
 }
+
 #footerlinks  { 
   font-family:Arnoldboecklin, fantasy; 
   font-size:16pt; 
+  text-align:center;
+}
+
+#caption  a { 
+  font-family:Arnoldboecklin, fantasy; 
+  font-size:14pt; 
   text-align:center;
 }
 

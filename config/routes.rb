@@ -6,9 +6,10 @@ Bookit4pg::Application.routes.draw do
   get 'admins/error'
   get 'admins/venues'
   get 'admins/concerts'
-
+  
   resources :venues
-
+  
+  get "groups/join"
   resources :groups
 
   resources :concerts
@@ -16,6 +17,7 @@ Bookit4pg::Application.routes.draw do
   get "concerts/venues_near"
   get "venues/concerts_near"
   
+  match "users/join_group/:id" => "users#join_group", :as => :join_group
   match 'concerts_near_me' => "concerts#near_venue", :as => :concerts_near_me
   match "concerts/:id/near_venue" => "concerts#near_venue", :as => :near_venue
   match "concerts/:id/venues_near" => "concerts#venues_near", :as => :venues_near
@@ -34,6 +36,7 @@ Bookit4pg::Application.routes.draw do
   get "agent/help"
   get "agent/contact"
 
+  
   get "user_sessions/new"
 
   resource :account, :controller => "users"

@@ -1,0 +1,17 @@
+
+<div class="form_heading">
+	<br/><br/>Join a Group</div>
+
+	<% if @groups.length > 0 %>
+	<table class="center">
+		<% @groups.each do |g| %>
+		<tr><td>
+			<%= link_to g.title, g %>
+		</td></tr>
+		<% end %>
+	</table>
+	<% else %>
+	<div id="notes">
+		There are no groups available to join
+	</div>
+	<% end %>

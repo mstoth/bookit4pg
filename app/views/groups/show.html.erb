@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<br/><br/><p id="notice"><%= notice %></p>
 
 <table class="center">
 <tr><td>
@@ -68,6 +68,8 @@
 </table>
 
 <div id="footerlinks">
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<% if current_user.groups.include? @group %>
+<%= link_to 'Edit', edit_group_path(@group) %>  | 
+<% end %>
+<%= link_to 'Join', "/users/join_group/#{@group.id}" %>
 </div>
