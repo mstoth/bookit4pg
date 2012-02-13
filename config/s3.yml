@@ -1,3 +1,7 @@
+access_key_id: AKIAICR6FRQRFATSMPKQ
+secret_access_key: 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
+
+
 development:
   bucket: bookit4pg
   access_key_id: AKIAICR6FRQRFATSMPKQ
