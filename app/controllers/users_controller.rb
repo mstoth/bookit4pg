@@ -31,9 +31,6 @@ class UsersController < ApplicationController
       redirect_to :home, :notice=>'You are already a member of this group.'
     else
       current_user.groups << g
-      g.concerts.each do |c|
-        current_user.concerts << c
-      end
       current_user.save
       redirect_to :home, :notice=>"You have joined #{g.title}"
     end    
