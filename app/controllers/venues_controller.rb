@@ -13,7 +13,7 @@ class VenuesController < ApplicationController
   def concerts_near
     @genre = params[:genre]
     @venue = Venue.find(params[:id])
-    @concerts = Concert.near(@venue,20)
+    @concerts = Concert.near(@venue,100)
 
     @genres = ['All']
     @concerts.each do |c|
