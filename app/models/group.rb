@@ -8,7 +8,7 @@ class Group < ActiveRecord::Base
   :s3_credentials => {
     :access_key_id => ENV['AKIAICR6FRQRFATSMPKQ'],
     :secret_access_key => ENV['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']
-  }
+  },
   :path => "/:style/:id/:filename"
   
   geocoded_by :zip
