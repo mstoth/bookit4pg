@@ -3,7 +3,7 @@ class VenuesController < ApplicationController
   # GET /venues.xml
   def index
     @venues = current_user.venues
-
+    @avail_venues = Venue.where(:user_id=>nil)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @venues }
@@ -83,6 +83,7 @@ class VenuesController < ApplicationController
     end
   end
 
+  
   # PUT /venues/1
   # PUT /venues/1.xml
   def update

@@ -24,7 +24,7 @@ Your venues
     <td><%= venue.email %></td>
     <td><%= link_to 'Show', venue %></td>
     <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
-    <td><%= link_to 'Destroy', venue, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Leave', "/users/leave_venue/#{venue.id}" %></td>
   </tr>
 <% end %>
 </table>
@@ -37,5 +37,16 @@ Your venues
 <% if  @venues.count == 0 %>
 <div id="notes">
 You typically will only have one venue.  If you hire musicians at more than one venue, you can add more than one. 
+</div>
+<% end %>
+
+<% if @avail_venues.count > 0 %>
+<div id="notes">
+	If you are one of the following venues, you can choose it below.<br/>
+	<table>
+		<% @avail_venues.each do |v| %>
+			<tr><td><%= link_to v.name, "/users/join_venue/#{v.id}" %></td></tr>
+		<% end %>
+	</table>	
 </div>
 <% end %>

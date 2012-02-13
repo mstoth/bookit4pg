@@ -37,6 +37,8 @@
   color:blue;
  }
 
+#pricefield { width:8em; }
+
 #notes { 
   padding:20px;
   line-height:2em;

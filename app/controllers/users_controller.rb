@@ -6,6 +6,22 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+  
+  def join_venue
+    @venue = Venue.find(params[:id])
+    @venue.user_id = current_user.id
+    @venue.save
+    current_user.venues << @venue
+    current_user.save
+    redirect_to "/agent/home", :notice=>"You are now connected to #{@venue.name}. Please edit the venue."
+  end
+    
+  def leave_venue
+    @venue = Venue.find(params[:id])
+    @venue.user_id = nil
+    @venue.save
+    redirect_to "/venues", :notice=>"You are not connected with #{@venue.name}."
+  end
 
   def join_group
     gid=params[:id]
@@ -30,7 +46,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = @current_user
+    @user = User.find(params[:id])
+    # @user = @current_user
   end
 
   def edit

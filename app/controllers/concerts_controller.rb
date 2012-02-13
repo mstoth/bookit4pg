@@ -67,7 +67,7 @@ class ConcertsController < ApplicationController
   def new
     @concert = Concert.new
     @venues = Venue.all
-    @groups = Group.where(:user_id=>current_user.id)
+    @groups = current_user.groups
 
     respond_to do |format|
       format.html # new.html.erb

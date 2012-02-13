@@ -16,33 +16,33 @@
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
-  </div>
+  </div><br/>
   <div class="field">
-    <%= f.label :genre %><br />
+    <%= f.label :genre %>(Classical, Jazz, etc.)<br />
     <%= f.text_field :genre %>
-  </div>
+  </div><br/>
   <div class="field">
-    <%= f.label :offer %><br />
+    <%= f.label "This is an offering " %>
     <%= f.check_box :offer, :id=>"offer", :remote=>true %>
-  </div>
+  </div><br/>
   <div class="field">
     <%= f.label :price %><br />
-    <%= f.text_field :price %>
-  </div>
+    <%= f.text_field :price, :size=>10 %>
+  </div><br/>
   <div id="notoffer">
-    <%= f.label :date %><br />
-    <%= f.datetime_select :date %><br/>
-    <%= f.label :venue_id %><br />
+    <%= f.label :date %>&nbsp;
+    <%= f.datetime_select :date %><br/><br/>
+    <%= f.label :venue_id %>&nbsp;
     <%= f.select :venue_id, options_from_collection_for_select(@venues,:id,:name) %>
-  </div>
+  </div><br/>
   <div class="field">
-    <%= f.label :group_id %><br />
+    <%= f.label :group_id %>&nbsp;
     <%= f.select :group_id, options_from_collection_for_select(@groups,:id,:title) %>
-  </div>
+  </div><br/>
   <div class="field">
-    <%= f.label :webpage %><br />
+    <%= f.label :webpage %>(ex. http://mywebpage.com)<br />
     <%= f.text_field :webpage %>
-  </div>
+  </div><br/>
   <div class="actions">
     <%= f.submit %>
   </div>
