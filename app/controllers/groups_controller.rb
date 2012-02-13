@@ -68,8 +68,6 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.update_attributes(params[:group])
-	current_user.groups << @group
-	current_user.save
         format.html { redirect_to(@group, :notice => 'Group was successfully updated.') }
         format.xml  { head :ok }
       else

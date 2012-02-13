@@ -8,6 +8,7 @@ gem 'rails', '3.2.1'
 # in production environments by default.
   gem 'uglifier'
 gem 'therubyracer'
+gem 'aws-sdk'
 
 gem 'pg'
 gem 'rails3-generators'
