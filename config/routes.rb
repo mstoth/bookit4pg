@@ -38,6 +38,7 @@ Bookit4pg::Application.routes.draw do
   get "agent/help"
   get "agent/contact"
 
+  post "admins/delete_user"
   
   get "user_sessions/new"
 

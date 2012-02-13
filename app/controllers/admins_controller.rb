@@ -34,4 +34,9 @@ class AdminsController < ApplicationController
     @users_list = User.all
   end
 
+  def delete_user
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to "/admins/allusers"
+  end
 end

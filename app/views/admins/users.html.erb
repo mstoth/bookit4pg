@@ -16,7 +16,7 @@ Users
   <tr>
     <td><%= u.email %></td>
     <td><%= link_to 'Show', u %></td>
-    <td><%= link_to "Delete", users_path(u), :method=>:delete, :confirm=>"Are you sure?", :remote=>:true, :class=>"alert" %>
+    <td><%= link_to "Delete", "/users/#{u}/delete", :method=>:delete, :confirm=>"Are you sure?", :remote=>:true, :class=>"alert" %>
   </tr>
 <% end %>
 </table>

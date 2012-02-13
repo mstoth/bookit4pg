@@ -24,15 +24,7 @@ class ConcertsController < ApplicationController
   # GET /concerts
   # GET /concerts.xml
   def index
-    @concerts = []
-    current_user.groups.each do |g|
-      if g.concerts.count > 0
-	g.concerts.each do |gg|
-	  @concerts << gg
-	end
-      end
-    end
-
+    @concerts = current_user.my_concerts
     @venues = Venue.all
     @groups = current_user.groups
     respond_to do |format|
