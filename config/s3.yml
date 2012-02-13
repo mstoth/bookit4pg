@@ -3,10 +3,10 @@ development:
   access_key_id: AKIAICR6FRQRFATSMPKQ
   secret_access_key: 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
 test:
-  bucket: bucket-test
+  bucket: bookit4pg-test
   access_key_id: AKIAICR6FRQRFATSMPKQ
   secret_access_key: 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
 production:
-  bucket: bucket-pro
+  bucket: bookit4pg-pro
   access_key_id: AKIAICR6FRQRFATSMPKQ
   secret_access_key: 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
