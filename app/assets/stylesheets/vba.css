@@ -1,15 +1,29 @@
 
 .heading { 
   background-color:lightblue; 
-  height:50px; width:100%; }
+  height:50px; width:100%; 
+}
 .heading #leftside { float:left; 
   width:25%; height:50px; 
-  background-color:silver;}
+  background-color:silver;
+}
+
 .heading #leftside img { margin-top:40px; width:100% }
 .heading #rightside img { margin-top:40px; width:100% }
+
 .heading #centertext { height:50px; 
   float:left; text-align:center; 
   width:50%; }
+
+.heading #rightside a {
+  margin-left:20px; 
+  font-size:18pt;
+  font-family:Arnoldboecklin, fantasy; 
+  position:relative;
+  top:20px;
+  vertical-align:text-bottom;
+}
+
 .heading a {   
   margin-left:20px; 
   font-size:18pt;
@@ -22,12 +36,20 @@
 .heading #rightside {  
   float:right; 
   height:50px; width:25%; 
-  background-color:silver;}
+  background-color:silver;
+}
+
 .heading #centertext { 
   margin-top:20px;
   font-size:18pt;
   font-family:Arnoldboecklin, fantasy; 
  }
+
+.heading #rightside table {
+	padding:0px;
+	width:100%;
+	margin-right:0px;
+}
 .heading table { padding:10px; }
 
 .form_heading { 
@@ -72,7 +94,11 @@ h4 { text-align:center }
   font-size:16pt; 
   text-align:center;
 }
-
+#rightside #caption a {
+  font-family:Arnoldboecklin, fantasy; 
+  font-size:14pt; 
+  text-align:center;
+}
 #caption  a { 
   font-family:Arnoldboecklin, fantasy; 
   font-size:14pt; 
