@@ -57,8 +57,10 @@
 	</td></tr>
 </table>
 <br/>
+<% if !current_user.nil? %>
 <div id="footerlinks">
 	<% if current_user.venues.include? @venue %>
 	<%= link_to 'Edit', edit_venue_path(@venue) %> 
 	<% end %>
 </div>
+<% end %>
