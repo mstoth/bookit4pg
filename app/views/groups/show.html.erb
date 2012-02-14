@@ -42,15 +42,6 @@
   <%= @group.zip %>
 </td></tr>
 <tr><td>
-  <b>Picture file name:</b>
-</td><td>
-  <%= @group.picture_file_name %>
-</td><td>
-<% if @group.picture.exists? %>
-  <%= image_tag @group.picture.url(:thumb) %>
-<% end %>
-</td></tr>
-<tr><td>
   <b>Website:</b>
 </td><td>
   <%= link_to @group.website, @group.website %>
