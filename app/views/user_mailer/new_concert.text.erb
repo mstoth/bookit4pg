@@ -1,9 +1,9 @@
 Notice from virtualbookingagent.com
 ===============================================
  
-A New Concert offered near you, <%= @venue.name %>
+A New Concert offered near you, <%= @user.login %>
 
-The Group's title is <%= Group.find(@concert.group_id).title %><br/>
+The Group is <%= Group.find(@concert.group_id).title %><br/>
 The Concert is called <%= @concert.title %>
 You can view details about the concert at <%= @url %>
 

@@ -15,9 +15,9 @@ class UserMailer < ActionMailer::Base
     @url = "http://virtualbookingagent.com"
     mail(:to=>user.email, :subject=> "Welcome to Virtual Booking Agent")
   end
-  def new_concert(concert,venue)
+  def new_concert(concert,user)
     @concert = concert
-    @venue = venue
-    mail(:to=>venue.email, :subject => "A new concert is being offered at Virtual Booking Agent.")
+    @user = user
+    mail(:to=>user.email, :subject => "A new concert is being offered at Virtual Booking Agent.")
   end
 end
