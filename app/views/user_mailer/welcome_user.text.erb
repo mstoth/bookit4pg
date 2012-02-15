@@ -1,9 +1,14 @@
-Welcome to virtualbookingagent.com, <%= @user.name %>
+Welcome to virtualbookingagent.com, <%= @user.login %>
 ===============================================
  
 You have successfully signed up to virtualbookingagent.com,
-your venue name is: <%= @user.name %>.
+your login is: <%= @user.login %>.
+ <% if @user.notify %>
+	You will be notified of new concerts and groups.
+ <% else %>
+	You will not be notified of new groups and concerts.
+ <% end %>
  
-To login to the site, just follow this link: <%= @url %>.
+If you want to change this, go to <%= @url %> and modify your profile settings. 
  
 Thanks for joining and have a great day!
