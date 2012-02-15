@@ -4,6 +4,7 @@ class VenuesController < ApplicationController
   def index
     @venues = current_user.venues
     @avail_venues = Venue.where(:user_id=>nil)
+    @avail_venues.sort! { |a,b| a.name <=> b.name }
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @venues }
