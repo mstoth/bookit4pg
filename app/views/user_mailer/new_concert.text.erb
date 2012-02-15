@@ -1,0 +1,10 @@
+Notice from virtualbookingagent.com
+===============================================
+ 
+A New Concert offered near you, <%= @venue.name %>
+
+The Group's title is <%= Group.find(@concert.group_id).title %><br/>
+The Concert is called <%= @concert.title %>
+You can view details about the concert at <%= @url %>
+
+Note: If you want to stop email about new concerts, go to <%= @url %> and turn off notification.
