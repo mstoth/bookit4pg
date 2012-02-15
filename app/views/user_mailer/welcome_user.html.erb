@@ -4,10 +4,18 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>Welcome to virtualbookingagent.com, <%= @user.name %></h1>
+    <h1>Welcome to virtualbookingagent.com, <%= @user.login %></h1>
     <p>
       You have successfully signed up and added your venue,
-      your venue name is: <%= @user.name %>.<br/>
+      your User name is: <%= @user.login %>.<br/>
+	  <% if @user.notify %>
+		You will be notified of new concerts and groups.
+	  <% else %>
+		You will not be notified of new groups and concerts.
+	  <% end %>
+	  <br/>
+	  If you want to change this, go to <%= @url %> and modify your profile settings. 
+	  <br/>
     </p>
     <p>
       To login to the site, just follow this link: <%= @url %>.
