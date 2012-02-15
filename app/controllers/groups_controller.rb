@@ -2,7 +2,14 @@ class GroupsController < ApplicationController
   
   # GET /groups/join
   def join
-    @groups = Group.where(:locked=>false)
+    @groups = Group.near(current_user)
+    @group_list = []
+    @groups.each do |g|
+      if g.locked == false
+        @group_list << g
+      end
+    end
+    @groups = @group_list
   end
 
   # GET /groups
