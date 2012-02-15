@@ -18,6 +18,6 @@ class UserMailer < ActionMailer::Base
   def new_concert(concert,venue)
     @concert = concert
     @venue = venue
-    mail(:to=>v.email, :subject => "A new concert is being offered at Virtual Booking Agent.")
+    mail(:to=>venue.email, :subject => "A new concert is being offered at Virtual Booking Agent.")
   end
 end
