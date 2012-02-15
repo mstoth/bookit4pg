@@ -8,6 +8,14 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
+  def groups_near_me
+    @groups = Group.near(current_user)
+  end
+  
+  def venues_near_me
+    @venues = Venue.near(current_user)
+  end
+  
   def join_venue
     @venue = Venue.find(params[:id])
     @venue.user_id = current_user.id

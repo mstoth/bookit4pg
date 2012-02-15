@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212170733) do
+ActiveRecord::Schema.define(:version => 20120215052548) do
 
   create_table "concerts", :force => true do |t|
     t.string   "title"
@@ -77,6 +77,9 @@ ActiveRecord::Schema.define(:version => 20120212170733) do
     t.boolean  "notify"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
+    t.string   "zip"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

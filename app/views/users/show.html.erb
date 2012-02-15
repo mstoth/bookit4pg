@@ -1,11 +1,25 @@
 <table class="center">
-<tr><td>
-Login: <%=h @user.login %>
-</td><td>
-Login count: <%=h @user.login_count %>
-</td></tr><tr><td>
-<% if @user.notify %>You will be notified of new concerts by email.<% else %>You will not be notified of new concerts by email.<% end %>
-</td></tr></table>
+	<tr>
+		<td>
+			Login: <%=h @user.login %>
+		</td>
+		<td>
+			Login count: <%=h @user.login_count %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<% if @user.notify %>
+				You will be notified of new concerts by email.
+			<% else %>
+				You will not be notified of new concerts by email.
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Zip: <%= @user.zip %>
+</table>
 <br/>
 <div id="footerlinks">
 <%= link_to 'Edit', edit_account_path %> 

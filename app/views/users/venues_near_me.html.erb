@@ -1,0 +1,8 @@
+<div class="form_heading"><br/><br/>Venues Near You</div>
+<table class="center"><tr><td>
+<ul>
+<% @venues.each do |g| %>
+	<li><%= link_to g.name,g %></li>
+<% end %>
+</ul>
+</td></tr></table>
