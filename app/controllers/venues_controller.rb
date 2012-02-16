@@ -21,7 +21,7 @@ class VenuesController < ApplicationController
   def concerts_near
     @genre = params[:genre]
     @venue = Venue.find(params[:id])
-    @concerts = Concert.near(@venue,current_user,Bookit4pg::Application::SEARCH_RANGE)
+    @concerts = Concert.near(@venue,Bookit4pg::Application::SEARCH_RANGE)
     @concert_list = []
     @concerts_booked = []
     @concerts.each do |c|
