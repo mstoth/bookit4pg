@@ -25,6 +25,17 @@ class ConcertsController < ApplicationController
   # GET /concerts.xml
   def index
     @concerts = current_user.my_concerts
+    @booked_concerts = []
+    @concert_list = []
+    @concerts.each do |c|
+      if c.offer == false
+        @booked_concerts << c
+      else
+        @concert_list << c
+      end
+    end
+    @concerts = @concert_list
+    
     @venues = Venue.all
     @groups = current_user.groups
     respond_to do |format|

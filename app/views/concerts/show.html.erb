@@ -20,6 +20,13 @@
   <%= link_to @concert.webpage,@concert.webpage %>
 </p>
 
+<% if @concert.offer == false %>
+<p>
+	<b>Booked at: </b><%= link_to Venue.find(@concert.venue_id).name, Venue.find(@concert.venue_id) %>
+
+	, <%= @concert.date.strftime("%A %B %d %Y, %r") %>
+</p>
+<% end %>
 </td></tr></table>
 <br/>
 <div id="footerlinks">
