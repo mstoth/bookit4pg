@@ -1,33 +1,47 @@
 <p id="notice"><%= notice %></p>
-<table class="center"><tr><td>
-<p>
-  <b>Title:</b>
-  <%= @concert.title %>
-</p>
-
-<p>
-  <b>Genre:</b>
-  <%= @concert.genre %>
-</p>
-
-<p>
-  <b>Group:</b>
-  <%= link_to Group.find(@concert.group_id).title, Group.find(@concert.group_id) %>
-</p>
-
-<p>
-  <b>Webpage:</b>
-  <%= link_to @concert.webpage,@concert.webpage %>
-</p>
-
-<% if @concert.offer == false %>
-<p>
-	<b>Booked at: </b><%= link_to Venue.find(@concert.venue_id).name, Venue.find(@concert.venue_id) %>
-
-	, <%= @concert.date.strftime("%A %B %d %Y, %r") %>
-</p>
-<% end %>
-</td></tr></table>
+<table class="center">
+	<tr>
+		<td>
+			<b>Title:</b>
+		</td>
+		<td>
+			<%= @concert.title %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Genre:</b>
+		</td>
+		<td>
+			<%= @concert.genre %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Group:</b>
+		</td>
+		<td>
+  			<%= link_to Group.find(@concert.group_id).title, Group.find(@concert.group_id) %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>Webpage:</b>
+		</td>
+		<td>
+			<%= link_to @concert.webpage,@concert.webpage %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<% if @concert.offer == false %>
+				<b>Booked at: </b>
+				<%= link_to Venue.find(@concert.venue_id).name, Venue.find(@concert.venue_id) %>
+				, <%= @concert.date.strftime("%A %B %d %Y, %r") %>
+			<% end %>
+		</td>
+	</tr>
+</table>
 <br/>
 <div id="footerlinks">
 <% if @can_edit %>

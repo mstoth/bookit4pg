@@ -50,6 +50,9 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
+  def notify_users_of_new_group(g)
+  end
+  
   # POST /groups
   # POST /groups.xml
   def create

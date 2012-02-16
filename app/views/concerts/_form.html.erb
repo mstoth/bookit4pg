@@ -33,11 +33,11 @@
     <%= f.label :date %>&nbsp;
     <%= f.datetime_select :date %><br/><br/>
     <%= f.label :venue_id %>&nbsp;
-    <%= f.select :venue_id, options_from_collection_for_select(@venues,:id,:name) %>
+    <%= f.select :venue_id, options_from_collection_for_select(@venues,:id,:name,@concert.venue_id) %>
   </div><br/>
   <div class="field">
     <%= f.label :group_id %>&nbsp;
-    <%= f.select :group_id, options_from_collection_for_select(@groups,:id,:title) %>
+    <%= f.select :group_id, options_from_collection_for_select(@groups,:id,:title,@concert.group_id) %>
   </div><br/>
   <div class="field">
     <%= f.label :webpage %>(ex. http://mywebpage.com)<br />
