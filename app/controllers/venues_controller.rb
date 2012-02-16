@@ -22,7 +22,17 @@ class VenuesController < ApplicationController
     @genre = params[:genre]
     @venue = Venue.find(params[:id])
     @concerts = Concert.near(@venue,100)
-
+    @concert_list = []
+    @concerts_booked = []
+    @concerts.each do |c|
+      if c.offer
+        @concert_list << c
+      else
+        @concerts_booked << c
+      end
+    end
+    @concerts = @concert_list
+    
     @genres = ['All']
     @concerts.each do |c|
       if !(@genres.include? c.genre)
