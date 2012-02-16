@@ -3,13 +3,13 @@ class ConcertsController < ApplicationController
 
   def venues_near
     @concert = Concert.find(params[:id])
-    @venues = Venue.near(@concert,20)
+    @venues = Venue.near(@concert,current_user,Bookit4pg::Application::SEARCH_RANGE)
   end
 
   def near_venue
     if !params[:id].nil?
       @venue=Venue.find(params[:id])
-      @concerts=Concert.near(@venue,20)
+      @concerts=Concert.near(@venue,current_user,Bookit4pg::Application::SEARCH_RANGE)
     else
       @venue=nil
       @concerts=Concert.all

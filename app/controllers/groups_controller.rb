@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   
   # GET /groups/join
   def join
-    @groups = Group.near(current_user,100)
+    @groups = Group.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
     @group_list = []
     @groups.each do |g|
       if g.locked == false

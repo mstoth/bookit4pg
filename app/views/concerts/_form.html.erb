@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title %>(The title of your concert)
   </div><br/>
   <div class="field">
     <%= f.label :genre %>(Classical, Jazz, etc.)<br />
@@ -23,11 +23,11 @@
   </div><br/>
   <div class="field">
     <%= f.label "This is an offering " %>
-    <%= f.check_box :offer, :id=>"offer", :remote=>true %>
+    <%= f.check_box :offer, :id=>"offer", :remote=>true %> (Select this if this is a concert offering.)
   </div><br/>
   <div class="field">
     <%= f.label :price %><br />
-    <%= f.text_field :price, :size=>10 %>
+    <%= f.text_field :price, :size=>10 %> (You can leave this blank if you don't have a fixed price.)
   </div><br/>
   <div id="notoffer">
     <%= f.label :date %>&nbsp;
@@ -41,7 +41,7 @@
   </div><br/>
   <div class="field">
     <%= f.label :webpage %>(ex. http://mywebpage.com)<br />
-    <%= f.text_field :webpage %>
+    <%= f.text_field :webpage %>(This web page describes the concert.)
   </div><br/>
   <div class="actions">
     <%= f.submit %>

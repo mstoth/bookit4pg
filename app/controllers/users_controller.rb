@@ -9,11 +9,11 @@ class UsersController < ApplicationController
   end
   
   def groups_near_me
-    @groups = Group.near(current_user)
+    @groups = Group.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
   end
   
   def venues_near_me
-    @venues = Venue.near(current_user)
+    @venues = Venue.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
   end
   
   def join_venue
