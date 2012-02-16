@@ -21,10 +21,13 @@
 	<% if current_user.login == "mstoth" %>
 	  <%= link_to "Admin", "/admins/index" %>
 	<% end %>
+	
 	<% if Group.all.length > 0 %>
-	<% group_array = Group.all %>
+	<% g=Group.where(:picture_file_name=>nil) %>
+	<% group_array = Group.all - g %>
 	<% sel = rand(group_array.length) %>
 	<% group = group_array[sel] %>
+	
 	<%= image_tag group.picture.url(:medium) %>
 	<br/>
 	<div id="caption">
