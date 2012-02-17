@@ -52,12 +52,14 @@
   <%= @group.email %>
 </td></tr>
 </table>
+<br/>
 <% if !current_user.nil? %>
 <div id="footerlinks">
 <% if current_user.groups.include? @group %>
 <%= link_to 'Edit', edit_group_path(@group) %>  | 
 <% end %>
-<%= link_to 'Join', "/users/join_group/#{@group.id}" %>
+<%= link_to 'Join', "/users/join_group/#{@group.id}" %> | 
+<%= link_to 'Leave', "/users/leave_group/#{@group.id}" %>
 </div>
 <% end %>
 <br/>

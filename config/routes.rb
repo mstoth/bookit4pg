@@ -22,6 +22,7 @@ Bookit4pg::Application.routes.draw do
   match "users/join_venue/:id" => "users#join_venue", :as => :join_venue
   match "users/leave_venue/:id" => "users#leave_venue", :as => :leave_venue
   match "users/join_group/:id" => "users#join_group", :as => :join_group
+  match "users/leave_group/:id" => "users#leave_group", :as => :leave_group
   match 'concerts_near_me' => "concerts#near_venue", :as => :concerts_near_me
   match "concerts/:id/near_venue" => "concerts#near_venue", :as => :near_venue
   match "concerts/:id/venues_near" => "concerts#venues_near", :as => :venues_near

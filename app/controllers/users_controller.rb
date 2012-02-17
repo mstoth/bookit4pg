@@ -44,6 +44,13 @@ class UsersController < ApplicationController
     end    
   end
   
+  def leave_group
+    gid=params[:id]
+    g=Group.find(gid)
+    current_user.groups.delete g
+    redirect_to :home, :notice=>"You have left the group, #{g.title}"
+  end
+  
   def create
     @user = User.new(params[:user])
     if @user.save
