@@ -60,3 +60,11 @@
 <%= link_to 'Join', "/users/join_group/#{@group.id}" %>
 </div>
 <% end %>
+<br/>
+<div id="notes">
+	Members:<br/>
+	<% @group.users.each do |u| %>
+	<%= u.login %>&nbsp;<%= u.email %>
+	<% end %>
+</div>
+	
