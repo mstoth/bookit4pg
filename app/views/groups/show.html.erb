@@ -58,7 +58,9 @@
 <% if current_user.groups.include? @group %>
 <%= link_to 'Edit', edit_group_path(@group) %>  | 
 <% end %>
+<% if @group.locked == false %>
 <%= link_to 'Join', "/users/join_group/#{@group.id}" %> | 
+<% end %>
 <%= link_to 'Leave', "/users/leave_group/#{@group.id}" %>
 </div>
 <% end %>
