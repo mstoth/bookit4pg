@@ -9,6 +9,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=143085459093289";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	
 	<div class="heading">
 	<div id="leftside">
 		
@@ -39,7 +49,9 @@
 	
 	</div>
 	
-	<br/><br/>
+	<div id="social">
+		
+<div class="fb-like" data-href="http://virtualbookingagent.com" data-send="false" data-width="450" data-show-faces="true"></div>	</div>
 	
 	</div>
 	
@@ -60,16 +72,6 @@
 	<% else %>
 	Virtual Booking Agent - Logged in as <%=current_user.login%>
 	<% end %>
-	<div id="social">
-		<table align="center"><tr>
-			<td>
-	<div class="fb-like", data-href="http://virtualbookingagent.com" data-send="true" data-layout="button_count" data-width="50" data-show-faces="true" data-font="lucida grande" ></div>
-	</td><td>
-	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://virtualbookingagent.com" data-text="Free tool for performers and venues.  Take a look." data-via="virtualpianist">Tweet</a>
-	</td><td>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-	</td></tr></table>
-	</div>
 	
 	</div>
 	
@@ -94,6 +96,9 @@
 
 <% end %>
 <% end %>
+<div id="social_right">
+</div>
+
 	</div>
 	</div>
 

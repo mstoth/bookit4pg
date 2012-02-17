@@ -66,8 +66,18 @@
 #pricefield { width:8em; }
 
 #social {
-	margin-top:70%;
-	background-color:silver;
+	position:absolute;
+	bottom:10px;
+	width:25%;
+	padding:10px;
+	background-color:lightblue;
+}
+
+#social_right {
+	position:absolute;
+	bottom:10px;
+	
+	background-color:lightblue;
 }
 #notes { 
   padding:20px;
