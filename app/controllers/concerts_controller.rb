@@ -87,9 +87,9 @@ class ConcertsController < ApplicationController
     @can_edit=false
     if my_groups.length > 0 
       my_groups.each do |mg|
-	if @concert.group_id == mg.id
-	  @can_edit=true
-	end
+	      if @concert.group_id == mg.id
+	        @can_edit=true
+	      end
       end
     end
   end
@@ -98,6 +98,8 @@ class ConcertsController < ApplicationController
   # POST /concerts.xml
   def create
     @concert = Concert.new(params[:concert])
+    @venues = Venue.all
+    @groups = current_user.groups
     if !@concert.venue_id.nil? 
       @concert.zip = Venue.find(@concert.venue_id).zip
     else
