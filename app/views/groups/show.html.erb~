@@ -1,80 +1,74 @@
-<p id="notice"><%= notice %></p>
+<br/><br/><p id="notice"><%= notice %></p>
 
-<p>
+<table class="center">
+<tr><td>
   <b>Title:</b>
+</td><td>
   <%= @group.title %>
-</p>
-
-<p>
+</td></tr>
+<tr><td>
   <b>Contact:</b>
+</td><td>
   <%= @group.contact %>
-</p>
-
-<p>
+</td></tr>
+<tr><td>
   <b>Phone:</b>
+</td><td>
   <%= @group.phone %>
-</p>
-
-<p>
+</td></tr>
+<tr><td>
   <b>Street1:</b>
+</td><td>
   <%= @group.street1 %>
-</p>
-
-<p>
+</td></tr>
+<tr><td>
   <b>Street2:</b>
+</td><td>
   <%= @group.street2 %>
-</p>
-
-<p>
+</td></tr>
+<tr><td>
   <b>City:</b>
+</td><td>
   <%= @group.city %>
-</p>
-
-<p>
+</td></tr>
+<tr><td>
   <b>State:</b>
+</td><td>
   <%= @group.state %>
-</p>
-
-<p>
+</td></tr>
+<tr><td>
   <b>Zip:</b>
+</td><td>
   <%= @group.zip %>
-</p>
-
-<p>
-  <b>Picture file name:</b>
-  <%= @group.picture_file_name %>
-</p>
-
-<p>
-  <b>Picture content type:</b>
-  <%= @group.picture_content_type %>
-</p>
-
-<p>
-  <b>Picture updated at:</b>
-  <%= @group.picture_updated_at %>
-</p>
-
-<p>
-  <b>Picture file size:</b>
-  <%= @group.picture_file_size %>
-</p>
-
-<p>
+</td></tr>
+<tr><td>
   <b>Website:</b>
-  <%= @group.website %>
-</p>
-
-<p>
+</td><td>
+  <%= link_to @group.website, @group.website %>
+</td></tr>
+<tr><td>
   <b>Email:</b>
+</td><td>
   <%= @group.email %>
-</p>
-
-<p>
-  <b>Locked:</b>
-  <%= @group.locked %>
-</p>
-
-
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+</td></tr>
+</table>
+<br/>
+<% if !current_user.nil? %>
+<div id="footerlinks">
+<% if current_user.groups.include? @group %>
+<%= link_to 'Edit', edit_group_path(@group) %>  | 
+<% end %>
+<% if @group.locked == false %>
+<%= link_to 'Join', "/users/join_group/#{@group.id}" %> | 
+<% end %>
+<%= link_to 'Leave', "/users/leave_group/#{@group.id}" %>
+</div>
+<% end %>
+<br/>
+<div id="notes">
+	Members:<br/>
+	<% @group.users.each do |u| %>
+	<%= u.login %>&nbsp;<%= u.email %>
+	<% end %>
+</div>
+	

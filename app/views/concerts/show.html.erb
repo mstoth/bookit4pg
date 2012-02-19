@@ -1,13 +1,7 @@
 <p id="notice"><%= notice %></p>
+<div class="form_heading"><br/><%=h @concert.title %></div>
+<br/><br/>
 <table class="center">
-	<tr>
-		<td>
-			<b>Title:</b>
-		</td>
-		<td>
-			<%= @concert.title %>
-		</td>
-	</tr>
 	<tr>
 		<td>
 			<b>Genre:</b>
@@ -29,13 +23,14 @@
 			<b>Webpage:</b>
 		</td>
 		<td>
-			<%= link_to @concert.webpage,@concert.webpage %>
+			<%= link_to "Concert Description",@concert.webpage %>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			<% if @concert.offer == false %>
 				<b>Booked at: </b>
+		</td><td>
 				<%= link_to Venue.find(@concert.venue_id).name, Venue.find(@concert.venue_id) %>
 				, <%= @concert.date.strftime("%A %B %d %Y, %r") %>
 			<% end %>
