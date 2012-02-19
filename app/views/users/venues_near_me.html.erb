@@ -6,3 +6,8 @@
 <% end %>
 </ul>
 </td></tr></table>
+<% if @venues.length == 0 %>
+	<div id="notes">
+		There are no venues near you who are registered yet.  Contact places you know nearby to get them to sign on. 
+		</div>
+<% end %>
