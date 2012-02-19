@@ -66,7 +66,7 @@ n      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group 
 </td></tr>
 <tr><td align="right">
     <%= f.label :locked %></td><td>
-    <%= f.check_box :locked %>
+    <%= f.check_box :locked %> 
 </td></tr>
 <tr><td>
 
@@ -74,3 +74,6 @@ n      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group 
 </td></tr></table>
 
 <% end %>
+<div id="notes">
+	Select "Locked" when all members of the group have joined. 
+</div>
