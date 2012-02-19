@@ -2,7 +2,7 @@ class Group < ActiveRecord::Base
   has_and_belongs_to_many :users
   has_many :concerts
   
-  has_attached_file :picture, :styles => { :large => "640x480", :medium => "300x300>", :thumb => "100x100>" },
+  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>" },
   :storage => :s3,
   :url  => '/pictures/:style/:basename.:extension',
   :path => 'pictures/:style/:basename.:extension',

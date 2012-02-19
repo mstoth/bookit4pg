@@ -1,6 +1,6 @@
 class Venue < ActiveRecord::Base
   
-  has_attached_file :vpic, :styles => { :large => "640x480", :medium => "300x300>", :thumb => "100x100>" },
+  has_attached_file :vpic, :styles => { :medium => "300x300>", :thumb => "100x100>" },
   :storage => :s3,
   :s3_credentials => "#{Rails.root}/config/s3.yml",
   :url  => '/vpic/:style/:basename.:extension',
