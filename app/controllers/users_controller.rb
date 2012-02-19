@@ -48,6 +48,10 @@ class UsersController < ApplicationController
     gid=params[:id]
     g=Group.find(gid)
     current_user.groups.delete g
+    if g.users.length == 0
+      g.locked = false
+      g.save
+    end
     redirect_to :home, :notice=>"You have left the group, #{g.title}"
   end
   

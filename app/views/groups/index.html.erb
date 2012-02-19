@@ -17,7 +17,7 @@
     <td><%= group.phone %></td>
     <td><%= link_to 'Show', group %></td>
     <td><%= link_to 'Edit', edit_group_path(group) %></td>
-    <td><%= link_to 'Destroy', group, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Leave', "/users/leave_group/#{group.id}", :confirm => 'Are you sure?' %></td>
   </tr>
 <% end %>
 </table>
