@@ -92,11 +92,15 @@
 
  }
 
-#notice { text-align:center; 
+#notice { 
+	width:40%;
+	margin-left:30%;
+	margin-right:30%;
+	text-align:center; 
 	font-size:14pt;
-  font-family:Arnoldboecklin, fantasy; 
-  
-	}
+  	font-family:Arnoldboecklin, fantasy; 
+}
+
 .venue_form {  margin-left:28%; width:50%; text-align:left; position:relative; top:10px; }
 #login_form { text-align:center; position:relative; top:10px; }
 

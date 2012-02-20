@@ -10,7 +10,6 @@ Your venues
     <th>Name</th>
     <th>Contact</th>
     <th>Phone</th>
-    <th>Email</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,7 +20,6 @@ Your venues
     <td><%= venue.name %></td>
     <td><%= venue.contact %></td>
     <td><%= venue.phone %></td>
-    <td><%= venue.email %></td>
     <td><%= link_to 'Show', venue %></td>
     <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
     <td><%= link_to 'Leave', "/users/leave_venue/#{venue.id}" %></td>
