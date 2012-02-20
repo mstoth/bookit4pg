@@ -1,6 +1,7 @@
 class ConcertsController < ApplicationController
 
-
+  before_filter :require_mst_or_owner, :only=>[:destroy, :edit, :update]
+  
   def venues_near
     @concert = Concert.find(params[:id])
     @venues = Venue.near(@concert,current_user,Bookit4pg::Application::SEARCH_RANGE)
@@ -149,5 +150,20 @@ class ConcertsController < ApplicationController
       format.html { redirect_to(concerts_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  
+  def require_mst_or_owner
+    if current_user.login == 'mstoth'
+        return true
+    end
+    concert=Concert.find(params[:id])
+    group=Group.find(concert.group_id)
+    if current_user.groups.include? group
+      return true
+    end
+    render '/agent/error', :notice=>"You do not have permission." 
+    return false
   end
 end

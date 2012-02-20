@@ -130,4 +130,19 @@ class VenuesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  
+  def require_mst_or_owner
+    if current_user.login == 'mstoth'
+        return true
+    end
+    venue=Venue.find(params[:id])
+    if current_user.venues.include? venue 
+      return true
+    end
+    render '/agent/error', :notice=>"You do not have permission." 
+    return false
+  end
+  
 end

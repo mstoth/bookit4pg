@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  
+  before_filter :require_mst_or_owner, :only=>[:edit, :destroy, :update]
   # GET /groups/join
   def join
     @groups = Group.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
@@ -98,4 +98,19 @@ class GroupsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  
+  def require_mst_or_owner
+    if current_user.login == 'mstoth'
+        return true
+    end
+    g=Group.find(params[:id])
+    if current_user.groups.include? g 
+      return true
+    end
+    render '/agent/error', :notice=>"You do not have permission." 
+    return false
+  end
+  
 end
