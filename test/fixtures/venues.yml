@@ -4,8 +4,28 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+me: 
+     name: My Home
+     contact: Michael Toth
+     phone: 610-555-1212
+     email: mike@virtualpianist.com
+     street1: 2830 Old S. Pike Ave.
+     city: Allentown
+     state: PA
+     zip: 18103
+     website: http://www.virtualpianist.com
+    
 # column: value
 #
-two: {}
+two: 
+    name: uu church
+    contact: larry
+    phone: 610-555-1212
+    email: larry@virtualpianist.com
+    street1: 412 Center St.
+    city: Allentown
+    state: PA
+    zip: 18018
+    website: http://www.google.com
+    
 #  column: value

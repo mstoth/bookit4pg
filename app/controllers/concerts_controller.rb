@@ -109,6 +109,7 @@ class ConcertsController < ApplicationController
 
     respond_to do |format|
       if @concert.save
+        send_concert_announcement(@concert)
         format.html { redirect_to(@concert, :notice => 'Concert was successfully created.') }
         format.xml  { render :xml => @concert, :status => :created, :location => @concert }
       else
@@ -153,6 +154,18 @@ class ConcertsController < ApplicationController
   end
   
   private
+  
+  def send_concert_announcement(c)
+    venue_list = Venue.near(c)
+    venue_list.each do |v|
+      if !v.user_id.nil?
+        u = User.find(v.user_id)
+        if !u.nil? && u.notify
+          UserMailer.new_concert(c,u).deliver
+        end
+      end
+    end
+  end
   
   def require_mst_or_owner
     if current_user.login == 'mstoth'

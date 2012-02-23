@@ -10,6 +10,7 @@ $(document).ready(function() {
 	window.location= "/venues/" + vid.toString() + "/concerts_near?genre=" + gid.toString();
       });
 
+  //$("#sendmsg").hide()
 
   $("#venue_select").change(function() {
     var vid = $(this).val();

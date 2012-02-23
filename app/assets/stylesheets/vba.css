@@ -92,6 +92,14 @@
 
  }
 
+#sendmsg {
+	text-align:center;
+	color:red;
+	font-size:12pt;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
 #notice { 
 	width:40%;
 	margin-left:30%;
@@ -149,6 +157,7 @@ table.center label { text-align:right; }
 table.center td {
   font-family:Arnoldboecklin, fantasy; 
   font-size:14pt; 
+	padding:5px;
 }
 table.center {
   width:45%;

@@ -20,6 +20,7 @@
 	
 	
 	<div class="heading">
+		
 	<div id="leftside">
 		
 				<%=link_to "Home", :home %>
@@ -35,6 +36,7 @@
 				<% else %>
 	
 				<% end %>
+								
 	<% if Group.all.length > 0 %>
 	<% g=Group.where(:picture_file_name=>nil) %>
 	<% group_array = Group.all - g %>
@@ -48,6 +50,7 @@
 	<% end %>
 	
 	</div>
+	
 	
 	<div id="social">
 		
@@ -101,7 +104,6 @@
 
 	</div>
 	</div>
-
 <%= yield %>
 
 <div id="bottom">

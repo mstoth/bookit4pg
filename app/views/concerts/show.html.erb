@@ -32,7 +32,7 @@
 				<b>Booked at: </b>
 		</td><td>
 				<%= link_to Venue.find(@concert.venue_id).name, Venue.find(@concert.venue_id) %>
-				, <%= @concert.date.strftime("%A %B %d %Y, %r") %>
+				<br/><br/> <%= @concert.date.strftime("%A %B %d %Y, %r") %>
 			<% end %>
 		</td>
 	</tr>
