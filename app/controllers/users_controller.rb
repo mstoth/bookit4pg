@@ -5,9 +5,9 @@ class UsersController < ApplicationController
   before_filter :requre_mst, :only=>[:delete]
 
   def stop_notification
-    user=User.find(params[:id])
-    user.notify=false
-    user.save
+    @user=User.find(params[:id])
+    @user.notify=false
+    @user.save
   end
   
   def new
