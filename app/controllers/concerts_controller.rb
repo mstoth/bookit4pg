@@ -54,9 +54,9 @@ class ConcertsController < ApplicationController
     @can_edit=false
     if my_groups.length > 0 
       my_groups.each do |mg|
-	if @concert.group_id == mg.id
-	  @can_edit=true
-	end
+	      if @concert.group_id == mg.id
+	        @can_edit=true
+	      end
       end
     end
 
@@ -156,7 +156,7 @@ class ConcertsController < ApplicationController
   private
   
   def send_concert_announcement(c)
-    venue_list = Venue.near(c)
+    venue_list = Venue.near(c,100)
     venue_list.each do |v|
       if !v.user_id.nil?
         u = User.find(v.user_id)

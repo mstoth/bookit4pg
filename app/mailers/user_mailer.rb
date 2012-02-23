@@ -19,6 +19,7 @@ class UserMailer < ActionMailer::Base
     @concert = concert
     @user = user
     @url = "http://virtualbookingagent.com"
+    @stop_notify = "http://virtualbookingagent.com/users/stop_notification?id=#{@user.id}"
     mail(:to=>user.email, :subject => "A new concert is being offered at Virtual Booking Agent.")
   end
 end

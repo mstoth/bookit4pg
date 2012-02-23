@@ -1,9 +1,15 @@
 class UsersController < ApplicationController
 
-  before_filter :require_no_user, :only=>[:new, :create]
+  before_filter :require_no_user, :only=>[:new, :create, :stop_notification]
   before_filter :require_user, :only=>[:show, :edit, :update]
   before_filter :requre_mst, :only=>[:delete]
 
+  def stop_notification
+    user=User.find(params[:id])
+    user.notify=false
+    user.save
+  end
+  
   def new
     @user = User.new
   end

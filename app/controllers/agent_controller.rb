@@ -1,6 +1,7 @@
 class AgentController < ApplicationController
 
 
+  
   def contact
   end
 

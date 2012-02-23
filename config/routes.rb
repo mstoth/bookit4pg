@@ -19,6 +19,8 @@ Bookit4pg::Application.routes.draw do
   
   get "users/groups_near_me"
   get "users/venues_near_me"
+  get "users/stop_notification"
+  
   match "users/join_venue/:id" => "users#join_venue", :as => :join_venue
   match "users/leave_venue/:id" => "users#leave_venue", :as => :leave_venue
   match "users/join_group/:id" => "users#join_group", :as => :join_group
