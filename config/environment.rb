@@ -9,6 +9,6 @@ ActionMailer::Base.smtp_settings = {
   :address  => "smtpout.secureserver.net",
   :port  => 25,
   :user_name  => "michael@virtualpianist.com",
-  :password  => "ArchDukeTr1o",
+  :password  => "G1nestera",
   :authentication  => :login
 }
