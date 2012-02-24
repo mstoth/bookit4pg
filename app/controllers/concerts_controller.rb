@@ -113,7 +113,9 @@ class ConcertsController < ApplicationController
 
     respond_to do |format|
       if @concert.save
-        send_concert_announcement(@concert)
+        if  @concert.offer
+          send_concert_announcement(@concert)
+        end
         format.html { redirect_to(@concert, :notice => 'Concert was successfully created.') }
         format.xml  { render :xml => @concert, :status => :created, :location => @concert }
       else
