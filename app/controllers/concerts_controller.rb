@@ -99,6 +99,10 @@ class ConcertsController < ApplicationController
   # POST /concerts.xml
   def create
     @concert = Concert.new(params[:concert])
+    no_webpage = params["no_webpage"]
+    if no_webpage == "true"
+      @concert.webpage = Group.find(@concert.group_id).website
+    end
     @venues = Venue.all
     @groups = current_user.groups
     if !@concert.venue_id.nil? 
@@ -123,6 +127,11 @@ class ConcertsController < ApplicationController
   # PUT /concerts/1.xml
   def update
     @concert = Concert.find(params[:id])
+
+    no_website = params["no_webpage"]
+    if no_webpage == "true"
+      @concert.webpage = Group.find(@concert.group_id).website
+    end
 
     if !@concert.venue_id.nil? 
       @concert.zip = Venue.find(@concert.venue_id).zip

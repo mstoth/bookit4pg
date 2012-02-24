@@ -40,8 +40,9 @@
     <%= f.select :group_id, options_from_collection_for_select(@groups,:id,:title,@concert.group_id) %>
   </div><br/>
   <div class="field">
-    <%= f.label :webpage %>(ex. http://mywebpage.com)<br />
-    <%= f.text_field :webpage %>(This web page describes the concert.)
+    <%= f.label :webpage %><small> (ex. http://mywebpage.com) </small><br />
+    <%= f.text_field :webpage %> &nbsp; <%= check_box_tag "no_webpage", "false", false %>No web page for concert <br/>
+<br/><small>(This web page describes the concert.)</small>
   </div><br/>
   <div class="actions">
     <%= f.submit %>

@@ -3,12 +3,22 @@
 
 $(document).ready(function() {
 
-$("#sendmsg").hide('fast');
+	$("#sendmsg").hide('fast');
 
-$(".actions").click(function() {
-	$("#sendmsg").show('fast');
-	$("#footerlinks").hide('fast');
-	$(".center").hide('fast');
-});
+	$(".actions").click(function() {
+		$("#sendmsg").show('fast');
+		$("#footerlinks").hide('fast');
+		$(".center").hide('fast');
+	});
+
+	$("#no_webpage").change(function() {
+		if ($("#no_webpage").val() == "false") {
+			$("#no_webpage").val("true");
+			$("#concert_webpage").val("Group Website");
+		} else {
+			$("#no_webpage").val("false");
+			$("#concert_webpage").val("http://");
+		}
+	});
 
 });
