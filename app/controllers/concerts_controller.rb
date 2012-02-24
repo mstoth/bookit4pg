@@ -132,13 +132,13 @@ class ConcertsController < ApplicationController
     
     no_webpage = params["no_webpage"]
     if no_webpage == "true"
-      @concert.webpage = Group.find(@concert.group_id).website
+      params[:concert]["webpage"] = Group.find(@concert.group_id).website
     end
     
     if !@concert.venue_id.nil? 
-      @concert.zip = Venue.find(@concert.venue_id).zip
+      params[:concert]["zip"] = Venue.find(@concert.venue_id).zip
     else
-      @concert.zip = Group.find(@concert.group_id).zip
+      params[:concert]["zip"] = Group.find(@concert.group_id).zip
     end
 
     respond_to do |format|
