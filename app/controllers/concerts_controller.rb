@@ -128,11 +128,6 @@ class ConcertsController < ApplicationController
   def update
     @concert = Concert.find(params[:id])
 
-    no_website = params["no_webpage"]
-    if no_webpage == "true"
-      @concert.webpage = Group.find(@concert.group_id).website
-    end
-
     if !@concert.venue_id.nil? 
       @concert.zip = Venue.find(@concert.venue_id).zip
     else
