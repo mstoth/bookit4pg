@@ -128,7 +128,8 @@ class ConcertsController < ApplicationController
   def update
     @concert = Concert.find(params[:id])
     @venues = Venue.near(current_user,100)
-
+    @groups = current_user.groups
+    
     if !@concert.venue_id.nil? 
       @concert.zip = Venue.find(@concert.venue_id).zip
     else
