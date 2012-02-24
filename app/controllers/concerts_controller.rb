@@ -130,6 +130,7 @@ class ConcertsController < ApplicationController
     @venues = Venue.near(current_user,100)
     @groups = current_user.groups
     
+    no_webpage = params["no_webpage"]
     if no_webpage == "true"
       @concert.webpage = Group.find(@concert.group_id).website
     end
