@@ -14,13 +14,14 @@
 </tr>
 
 <tr>
-<td><%= link_to image_tag("join_group.png", :id=>"join_group"), '/groups/join', :class=>"home" %></td>
-<% if current_user.groups.length == 0 %>
-<td></td>
-<% else %>
-<td style="vertical-align: top;"><%= link_to  image_tag("manage_concerts.jpg", :id=>"manage_concerts"), concerts_path, :class=>"home" %><br>
-</td>
-<% end %>
+	<td><%= link_to image_tag("join_group.png", :id=>"join_group"), '/groups/join', :class=>"home" %></td>
+	<% if current_user.groups.length == 0 %>
+		<td style="vertical-align: top;"><%= image_tag("manage_concerts.jpg", :alpha=>".2") %></td>
+	<% else %>
+		<td style="vertical-align: top;"><%= link_to  image_tag("manage_concerts.jpg", 
+				:id=>"manage_concerts"), concerts_path, :class=>"home" %>
+		</td>
+	<% end %>
 </tr>
 
 <tr>
@@ -30,7 +31,8 @@
 </td>
 </tr>
 <tr>
-<td style="vertical-align: top;"><%= link_to image_tag("groups_near_me.png", :id=>"groups_near_me"), "/users/groups_near_me", :class=>"home" %><br>
+	<td style="vertical-align: top;"><%= link_to image_tag("groups_near_me.png", 
+			:id=>"groups_near_me"), "/users/groups_near_me", :class=>"home" %>
 </td>
 <td style="vertical-align: top;"><%= link_to image_tag("venues_near_me.png", :id=>"venues_near_me"), "/users/venues_near_me", :class=>"home" %><br/>
 </td>

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   after_validation :geocode
   validates_presence_of :zip
   
+
   def join_group
     id=params[:id]
     g=Group.find(id)

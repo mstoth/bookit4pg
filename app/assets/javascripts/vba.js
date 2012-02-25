@@ -5,67 +5,67 @@
 $(document).ready(function() {
 
 	$("#profile").mouseover(function() {
-		$(this).attr("src","assets/profile_sel.png");
+		$(this).attr("src","/assets/profile_sel.png");
 	});
 	
 	$("#profile").mouseout(function() {
-		$(this).attr("src","assets/profile.png");
+		$(this).attr("src","/assets/profile.png");
 	});
 	
 	$("#venues_near_me").mouseover(function() {
-		$(this).attr("src","assets/venues_near_me_sel.png");
+		$(this).attr("src","/assets/venues_near_me_sel.png");
 	});
 	
 	$("#venues_near_me").mouseout(function() {
-		$(this).attr("src","assets/venues_near_me.png");
+		$(this).attr("src","/assets/venues_near_me.png");
 	});
 	
 	$("#groups_near_me").mouseover(function() {
-		$(this).attr("src","assets/groups_near_me_sel.png");
+		$(this).attr("src","/assets/groups_near_me_sel.png");
 	});
 	
 	$("#groups_near_me").mouseout(function() {
-		$(this).attr("src","assets/groups_near_me.png");
+		$(this).attr("src","/assets/groups_near_me.png");
 	});
 	
 	$("#concerts_near_me").mouseover(function() {
-		$(this).attr("src","assets/concerts_near_me_sel.png");
+		$(this).attr("src","/assets/concerts_near_me_sel.png");
 	});
 	
 	$("#concerts_near_me").mouseout(function() {
-		$(this).attr("src","assets/concerts_near_me.png");
+		$(this).attr("src","/assets/concerts_near_me.png");
 	});
 	
 	$("#join_group").mouseover(function() {
-		$(this).attr("src","assets/join_group_sel.png");
+		$(this).attr("src","/assets/join_group_sel.png");
 	});
 	
 	$("#join_group").mouseout(function() {
-		$(this).attr("src","assets/join_group.png");
+		$(this).attr("src","/assets/join_group.png");
 	});
 	
 	$("#manage_concerts").mouseover(function() {
-		$(this).attr("src","assets/manage_concerts_sel.jpg");
+		$(this).attr("src","/assets/manage_concerts_sel.jpg");
 	});
 	
 	$("#manage_concerts").mouseout(function() {
-		$(this).attr("src","assets/manage_concerts.jpg");
+		$(this).attr("src","/assets/manage_concerts.jpg");
 	});
 	
 	$("#manage_groups").mouseover(function() {
-		$(this).attr("src","assets/manage_groups_sel.png");
+		$(this).attr("src","/assets/manage_groups_sel.png");
 	});
 	
 	$("#manage_groups").mouseout(function() {
-		$(this).attr("src","assets/manage_groups.png");
+		$(this).attr("src","/assets/manage_groups.png");
 	});
 	
 	$("#manage_venues").mouseover(function() {
-		$(this).attr("src","assets/manage_venues_sel.png");
+		$(this).attr("src","/assets/manage_venues_sel.png");
 	});
 	
 	$("#manage_venues").mouseout(function() {
-		$(this).attr("src","assets/manage_venues.png");
+		$(this).attr("src","/assets/manage_venues.png");
 	});
 	
 	

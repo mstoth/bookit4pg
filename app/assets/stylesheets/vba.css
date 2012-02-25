@@ -1,15 +1,23 @@
 
-body {
-	background-image: url("assets/paper.gif") repeat-x repeat-y;
+html {
+	background-image: url("/assets/paper.gif") ;
 }
+
 .heading { 
   background-color:lightblue; 
   height:50px; width:100%; 
 }
 
+img.light
+{
+opacity:0.4;
+filter:alpha(opacity=40); /* For IE8 and earlier */
+}
+
 #leftside {
 	background-image: "paper.gif";
 }
+
 .heading #leftside { float:left; 
   width:25%; height:50px; 
   background-color:silver;
