@@ -8,7 +8,7 @@
   <%= javascript_include_tag "vba" %>
   <%= csrf_meta_tags %>
 </head 
-<body >
+<body>
 	<div id="fb-root"></div>
 	
 	
@@ -88,12 +88,13 @@
 <% end %>
 <% end %>
 
+<% if !current_user.nil? %>
 <div id="social_right"><table><tr><td>
 	Number of Concerts: </td><td><%= current_user.my_concerts.length %></td></tr><tr><td>
 	Number of Groups: </td><td> <%= current_user.groups.length %></td></tr><tr><td>
 	Number of Venues: </td><td> <%= current_user.venues.length %></td></tr></table>
 </div>
-
+<% end %>
 	</div>
 	</div>
 <%= yield %>

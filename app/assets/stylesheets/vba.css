@@ -1,10 +1,14 @@
 
 body {
-	background:"assets/paper.gif";
+	background-image: url("assets/paper.gif") repeat-x repeat-y;
 }
 .heading { 
   background-color:lightblue; 
   height:50px; width:100%; 
+}
+
+#leftside {
+	background-image: "paper.gif";
 }
 .heading #leftside { float:left; 
   width:25%; height:50px; 
