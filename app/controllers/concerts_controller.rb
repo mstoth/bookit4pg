@@ -37,7 +37,7 @@ class ConcertsController < ApplicationController
     end
     @concerts = @concert_list
     
-    @venues = Venue.all
+    @venues = Venue.near(current_user,100)
     @groups = current_user.groups
     respond_to do |format|
       format.html # index.html.erb
@@ -51,6 +51,7 @@ class ConcertsController < ApplicationController
     @concert = Concert.find(params[:id])
     @venues = Venue.all
     my_groups=current_user.groups
+    # determine if owner and allow editing if so.
     @can_edit=false
     if my_groups.length > 0 
       my_groups.each do |mg|
@@ -161,7 +162,7 @@ class ConcertsController < ApplicationController
     @concert.destroy
 
     respond_to do |format|
-      format.html { redirect_to(concerts_url) }
+      format.html { redirect_to(concerts_url, :notice=> 'Concert was deleted.') }
       format.xml  { head :ok }
     end
   end

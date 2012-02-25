@@ -6,9 +6,11 @@ $(document).ready(function() {
 	$("#sendmsg").hide('fast');
 
 	$(".actions").click(function() {
-		$("#sendmsg").show('fast');
-		$("#footerlinks").hide('fast');
-		$(".center").hide('fast');
+		if ($("#offer").attr("checked")) {
+			$("#sendmsg").show('fast');
+			$("#footerlinks").hide('fast');
+			$(".center").hide('fast');
+		}
 	});
 
 	$("#no_webpage").change(function() {

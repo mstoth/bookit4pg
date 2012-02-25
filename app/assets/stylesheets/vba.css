@@ -1,4 +1,7 @@
 
+body {
+	background:"assets/paper.gif";
+}
 .heading { 
   background-color:lightblue; 
   height:50px; width:100%; 
@@ -73,12 +76,20 @@
 	background-color:lightblue;
 }
 
+#social_right table {
+	width:100%;
+}
+
+#social_right td {
+	padding:5px;
+}
 #social_right {
 	position:absolute;
 	bottom:10px;
-	
+	width:25%;
 	background-color:lightblue;
 }
+
 #notes { 
   padding:20px;
   line-height:2em;
@@ -142,15 +153,20 @@ table.home {
   font-family:Arnoldboecklin, fantasy; 
   font-size:14pt; 
   text-align:center;
-  padding:10px;
+  padding:5px;
  }
+
+a.home:hover {
+	color: #000; 
+	background-color: #fff;
+}
 
 table.home td { 
   text-align:center;
   font-family:Arnoldboecklin, fantasy; 
   font-size:14pt; 
   text-align:center;
-  padding:10px;
+  padding:5px;
  }
 
 table.center label { text-align:right; }

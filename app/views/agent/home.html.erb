@@ -1,48 +1,42 @@
-<br/><br/><p id="notice"><%= notice %></p>
-
+<p id="notice"><%= notice %></p>
 
 <table class="home">
 <tbody>
 <tr>
 <% if @venue_id.nil? %>
-<td>If you are a venue, add one here ==></td>
+<td><%= image_tag("concerts_near_me.png") %></td>
 <% else %>
-<td style="vertical-align: top;"><%= link_to "Concerts Offered Near Me", concerts_near_path(@venue_id) %><br>
+<td style="vertical-align: top;"><%= link_to image_tag("concerts_near_me.png", :id=>"concerts_near_me"), concerts_near_path(@venue_id), :class=>"home" %><br>
 </td>
 <% end %>
-<td style="vertical-align: top;"><%= link_to "Manage My Venues", venues_path %><br>
+<td style="vertical-align: top;"><%= link_to image_tag("manage_venues.png", :id=>"manage_venues"), venues_path, :class=>"home" %><br>
 </td>
 </tr>
 
 <tr>
-<td><%= link_to "Join a Group", '/groups/join' %></td>
+<td><%= link_to image_tag("join_group.png", :id=>"join_group"), '/groups/join', :class=>"home" %></td>
 <% if current_user.groups.length == 0 %>
 <td></td>
 <% else %>
-<td style="vertical-align: top;"><%= link_to "Manage My Concerts", concerts_path %><br>
+<td style="vertical-align: top;"><%= link_to  image_tag("manage_concerts.jpg", :id=>"manage_concerts"), concerts_path, :class=>"home" %><br>
 </td>
 <% end %>
 </tr>
 
 <tr>
-<td style="vertical-align: top;"><%= link_to "Manage My Profile", current_user %><br>
+<td style="vertical-align: top;"><%= link_to image_tag("profile.png", :id=>"profile"), current_user, :class=>"home" %><br>
 </td>
-<td style="vertical-align: top;"><%= link_to "Manage My Groups", groups_path %><br/>
+<td style="vertical-align: top;"><%= link_to image_tag("manage_groups.png", :id=>"manage_groups"), groups_path, :class=>"home" %><br/>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: top;"><%= link_to "Groups Near Me", "/users/groups_near_me" %><br>
+<td style="vertical-align: top;"><%= link_to image_tag("groups_near_me.png", :id=>"groups_near_me"), "/users/groups_near_me", :class=>"home" %><br>
 </td>
-<td style="vertical-align: top;"><%= link_to "Venues Near Me", "/users/venues_near_me" %><br/>
+<td style="vertical-align: top;"><%= link_to image_tag("venues_near_me.png", :id=>"venues_near_me"), "/users/venues_near_me", :class=>"home" %><br/>
 </td>
 </tr>
 </tbody>
 </table>
-<div id="notes">	
-	Number of Concerts: <%= current_user.my_concerts.length %><br/>
-	Number of Groups: <%= current_user.groups.length %> <br/>
-	Number of Venues: <%= current_user.venues.length %><br/>
-</div>	
 	
 <% if @group_id.nil? && @venue_id.nil? %>
 <div id="notes">
