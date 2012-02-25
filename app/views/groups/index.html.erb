@@ -3,8 +3,6 @@
 <table class="center">
   <tr>
     <th>Title</th>
-    <th>Contact</th>
-    <th>Phone</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,8 +11,6 @@
 <% @groups.each do |group| %>
   <tr>
     <td><%= group.title %></td>
-    <td><%= group.contact %></td>
-    <td><%= group.phone %></td>
     <td><%= link_to 'Show', group %></td>
     <td><%= link_to 'Edit', edit_group_path(group) %></td>
     <td><%= link_to 'Leave', "/users/leave_group/#{group.id}", :confirm => 'Are you sure?' %></td>

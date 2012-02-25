@@ -1,5 +1,6 @@
 
 <table class="center">
+<tr><td><b>Title</b></td><td><b>Genre</b></td><td><b>Group</b></td></tr>
 <% @selected_concerts.each do |c| %>
 <tr>
 <td>
@@ -9,7 +10,7 @@
 <%= c.genre %>
 </td>
 <td>
-<%= Group.find(c.group_id).title %>
+<%= link_to Group.find(c.group_id).title, Group.find(c.group_id) %>
 </td>
 </tr>
 <% end %>
