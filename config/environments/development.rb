@@ -1,7 +1,7 @@
 Bookit4pg::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
-  SEARCH_RANGE = 100
+  SEARCH_RANGE = 70
   
   Paperclip.options[:command_path]="/usr/local/bin"
   # In the development environment your application's code is reloaded on

@@ -37,7 +37,7 @@ class ConcertsController < ApplicationController
     end
     @concerts = @concert_list
     
-    @venues = Venue.near(current_user,100)
+    @venues = Venue.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
     @groups = current_user.groups
     respond_to do |format|
       format.html # index.html.erb
@@ -104,7 +104,7 @@ class ConcertsController < ApplicationController
     if no_webpage == "true"
       @concert.webpage = Group.find(@concert.group_id).website
     end
-    @venues = Venue.near(current_user,100)
+    @venues = Venue.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
     @groups = current_user.groups
     if !@concert.venue_id.nil? 
       @concert.zip = Venue.find(@concert.venue_id).zip
@@ -130,7 +130,7 @@ class ConcertsController < ApplicationController
   # PUT /concerts/1.xml
   def update
     @concert = Concert.find(params[:id])
-    @venues = Venue.near(current_user,100)
+    @venues = Venue.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
     @groups = current_user.groups
     
     no_webpage = params["no_webpage"]
@@ -170,7 +170,7 @@ class ConcertsController < ApplicationController
   private
   
   def send_concert_announcement(c)
-    venue_list = Venue.near(c,100)
+    venue_list = Venue.near(c,Bookit4pg::Application::SEARCH_RANGE)
     venue_list.each do |v|
       if !v.user_id.nil?
         u = User.find(v.user_id)

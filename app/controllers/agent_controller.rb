@@ -46,6 +46,8 @@ class AgentController < ApplicationController
       render :action=>'how2book'
       when '7'
       render :action=>'getknown'
+      when '8'
+      render :action=>'nowebsite'
     else
     end
   end
