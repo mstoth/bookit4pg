@@ -1,6 +1,10 @@
 <br/><br/><p id="notice"><%= notice %></p>
 <div class="center">
+	<% if @venue.vpic_file_name.nil? %>
+	<div style="text-align:center">No Image</div>
+	<% else %>
 	<%= image_tag @venue.vpic.url(:medium) %>
+	<% end %>
 </div>
 <br/>
 <table class="center">
