@@ -16,14 +16,17 @@ class UsersController < ApplicationController
   
   def groups_near_me
     @groups = Group.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
+    @groups.sort! { |a,b| a.name <=> b.name }
   end
   
   def venues_near_me
     if params["distance"].nil?
       @venues = Venue.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
+      @venues.sort! { |a,b| a.name <=> b.name }
       @current_dist = Bookit4pg::Application::SEARCH_RANGE
     else
       @venues = Venue.near(current_user,params["distance"])
+      @venues.sort! { |a,b| a.name <=> b.name }
       @current_dist = params["distance"]
     end
   end
