@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   
   def groups_near_me
     @groups = Group.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
-    @groups.sort! { |a,b| a.name <=> b.name }
+    @groups.sort! { |a,b| a.title <=> b.title }
   end
   
   def venues_near_me
