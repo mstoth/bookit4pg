@@ -8,8 +8,6 @@ Your venues
 <table class="center">
   <tr>
     <th>Name</th>
-    <th>Contact</th>
-    <th>Phone</th>
     <th></th>
     <th></th>
   </tr>
@@ -17,8 +15,6 @@ Your venues
 <% @venues.each do |venue| %>
   <tr>
     <td><%= venue.name %></td>
-    <td><%= venue.contact %></td>
-    <td><%= venue.phone %></td>
     <td><%= link_to 'Show', venue %></td>
     <td><%= link_to 'Leave', "/users/leave_venue/#{venue.id}" %></td>
   </tr>
