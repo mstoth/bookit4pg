@@ -64,3 +64,14 @@
 	<% end %>
 </div>
 <% end %>
+
+<div id="notes">
+<b>Concerts at this venue:</b><br/>
+<br/>
+<% if @concerts.length > 0 %>
+	<% @concerts.each do |c| %>
+		<%= link_to c.title, c %><br/>
+	<% end %>
+<% end %>
+</div>
+	

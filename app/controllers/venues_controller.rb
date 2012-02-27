@@ -61,7 +61,8 @@ class VenuesController < ApplicationController
   def show
 
     @venue = Venue.find(params[:id])
-
+    @concerts = Concert.where(:venue_id=>@venue.id)
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @venue }
