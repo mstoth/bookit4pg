@@ -73,7 +73,7 @@ class ConcertsController < ApplicationController
     @concert = Concert.new
     @venues = Venue.all
     @groups = current_user.groups
-
+    @concert.date = DateTime.now()
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @concert }
