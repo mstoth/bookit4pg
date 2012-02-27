@@ -12,7 +12,6 @@ Your venues
     <th>Phone</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @venues.each do |venue| %>
@@ -21,7 +20,6 @@ Your venues
     <td><%= venue.contact %></td>
     <td><%= venue.phone %></td>
     <td><%= link_to 'Show', venue %></td>
-    <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
     <td><%= link_to 'Leave', "/users/leave_venue/#{venue.id}" %></td>
   </tr>
 <% end %>
