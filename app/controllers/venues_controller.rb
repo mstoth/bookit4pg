@@ -12,6 +12,7 @@ class VenuesController < ApplicationController
     end
     @avail_venues = @venue_list
     @avail_venues.sort! { |a,b| a.name <=> b.name }
+    @venues.sort! { |a,b| a.name <=> b.name }
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @venues }
