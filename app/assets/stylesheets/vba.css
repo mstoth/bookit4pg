@@ -209,6 +209,11 @@ table.home td {
   padding:5px;
  }
 
+.center img {
+	margin-left:40%;
+	margin-right:40%;
+	width:20%;
+}
 table.center label { text-align:right; }
 table.center td {
   font-family:Arnoldboecklin, fantasy; 

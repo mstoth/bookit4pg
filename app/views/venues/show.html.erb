@@ -1,7 +1,6 @@
 <br/><br/><p id="notice"><%= notice %></p>
-
-<div class="form_heading">
-	<%= @venue.name %>
+<div class="center">
+	<%= image_tag @venue.vpic.url(:medium) %>
 </div>
 <br/>
 <table class="center">
@@ -55,6 +54,7 @@
 	</td><td>
 		<%= link_to @venue.website,@venue.website %>
 	</td></tr>
+	
 </table>
 <br/>
 <% if !current_user.nil? %>
