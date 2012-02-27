@@ -19,7 +19,13 @@ class UsersController < ApplicationController
   end
   
   def venues_near_me
-    @venues = Venue.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
+    if params["distance"].nil?
+      @venues = Venue.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
+      @current_dist = Bookit4pg::Application::SEARCH_RANGE
+    else
+      @venues = Venue.near(current_user,params["distance"])
+      @current_dist = params["distance"]
+    end
   end
   
   def join_venue

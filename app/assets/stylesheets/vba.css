@@ -3,9 +3,28 @@ html {
 	background-image: url("/assets/paper.gif") ;
 }
 
-.heading { 
+.heading {
   background-color:lightblue; 
   height:50px; width:100%; 
+}
+
+#current_value {
+	margin-left:30%;
+}
+#slider_container {
+	white-space: nowrap;
+	padding:10px;
+	margin-left:30%;
+	margin-top:20px;
+}
+
+#slider {
+	margin-top:20px;
+	margin-left:30%;
+	margin-right:30%;
+	width:40%;
+	background:blue;
+	
 }
 
 img.light

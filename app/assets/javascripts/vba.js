@@ -3,7 +3,43 @@
 
 
 $(document).ready(function() {
+		
+	
+	$(function(){
+		var slide_int = null;
 
+		function update_slider(){
+			var offset = $('.ui-slider-handle').offset();
+			var value = $('#slider').slider('option', 'value');
+			$('#distance').val(value);
+			$('#current_value').text('Range: '+ value + " miles.").animate({top:offset.top }, 1000 );
+			$('#current_value').fadeIn();
+		}
+
+		$('#slider').slider({
+			animate: true,
+			step: 10,
+			min: 10,
+			value: $("#distance").val(),
+			orientation: 'horizontal',
+			max: 100,
+			start: function(event, ui){
+			$('#current_value').empty();
+				slide_int = setInterval(update_slider, 10);	
+			},
+			slide: function(event, ui){
+				setTimeout(update_slider, 10);  
+			},
+			stop: function(event, ui){
+				clearInterval(slide_int);
+				slide_int = null;
+			}
+		});	
+	});
+	
+	$("#slider").slider("value",$("#distance"));
+	$("#current_value").text("Range: "+$("#distance").val()+" miles");
+	
 	$("#profile").mouseover(function() {
 		$(this).attr("src","/assets/profile_sel.png");
 	});

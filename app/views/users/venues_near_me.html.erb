@@ -1,4 +1,15 @@
 <div class="form_heading"><br/><br/>Venues Near You</div>
+
+<div id="slider"></div>
+<br/>
+<table class="center" style="width:300px"><tr><td><div id="current_value"></div></td><td>
+
+	<%= form_tag '/users/venues_near_me', :method=>"get" do %>
+	<input type="hidden", name="distance", id="distance", value="<%= @current_dist %>"></input>
+	<input type="submit", name="submit", value="Update"></input>
+	<% end %>
+		
+	</td></tr></table>
 <table class="center"><tr><td>
 <ul>
 <% @venues.each do |g| %>
