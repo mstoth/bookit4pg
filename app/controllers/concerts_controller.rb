@@ -100,6 +100,11 @@ class ConcertsController < ApplicationController
   # POST /concerts.xml
   def create
     @concert = Concert.new(params[:concert])
+    
+    if params[:dateandtime] != ""
+      @concert.date = DateTime.strptime(params[:dateandtime],'%m/%d/%Y %H:%M %p')
+    end
+    
     no_webpage = params["no_webpage"]
     if no_webpage == "true"
       @concert.webpage = Group.find(@concert.group_id).website
@@ -130,6 +135,11 @@ class ConcertsController < ApplicationController
   # PUT /concerts/1.xml
   def update
     @concert = Concert.find(params[:id])
+    
+    if params[:dateandtime] != ""
+      @concert.date = DateTime.strptime(params[:dateandtime],'%m/%d/%Y %H:%M %p')
+    end
+    
     @venues = Venue.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
     @groups = current_user.groups
     

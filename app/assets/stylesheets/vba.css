@@ -3,6 +3,15 @@ html {
 	background-image: url("/assets/paper.gif") ;
 }
 
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+
 .heading {
   background-color:lightblue; 
   height:50px; width:100%; 
@@ -78,7 +87,7 @@ filter:alpha(opacity=40); /* For IE8 and earlier */
   font-size:14pt;
   font-family:Arnoldboecklin, fantasy; 
  }
-
+/* font-family:Arnoldboecklin, fantasy; */
 .heading #rightside table {
 	padding:0px;
 	width:100%;

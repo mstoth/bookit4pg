@@ -12,7 +12,7 @@
       </ul>
     </div>
   <% end %>
-
+  <%= hidden_field_tag 'current_date', @concert.date%>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %> <small>(The title of your concert)</small>
@@ -31,8 +31,10 @@
   </div><br/>
   <div id="notoffer">
     <%= f.label :date %>&nbsp;
-    <%= f.datetime_select :date %><br/><br/>
-    <%= f.label :venue_id %>&nbsp;
+	<%= text_field_tag :dateandtime, @concert.date.strftime("%m/%d/%Y %H:%M %P") %><br/>
+ <!--   <%= f.datetime_select :date %><br/><br/>   --> 
+<br/>
+<%= f.label :venue_id %>&nbsp;
     <%= f.select :venue_id, options_from_collection_for_select(@venues,:id,:name,@concert.venue_id) %>
   </div><br/>
   <div class="field">

@@ -4,6 +4,9 @@
 
 $(document).ready(function() {
 		
+		$('#dateandtime').datetimepicker({
+			ampm: true
+		});
 	
 	$(function(){
 		var slide_int = null;
