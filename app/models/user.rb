@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
   
   def deliver_password_reset_instructions!
     reset_perishable_token!
-    @url = "http://virtualbookingagent.com/password_resets/update?id=#{self.perishable_token}"
     UserMailer.password_reset_instructions(self).deliver
   end
 
