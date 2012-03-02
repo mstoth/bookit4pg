@@ -7,6 +7,48 @@ class AgentController < ApplicationController
 
   def error
   end
+  
+  def forgot
+    if request.post? 
+      @user = User.find_by_email(params[:email])
+      if @user
+ 	      @new_password = random_password
+	      @user.password = @new_password
+	      @user.save
+	      UserMailer.send_password(@user,@new_password).deliver
+	      redirect_to user_sessions_new_path, :notice=>'Your new password has been sent to your email address.'
+	      return
+      end
+    end
+  end
+  
+  def change_password
+    @user = current_user
+    if request.post? 
+      @newpw1=params[:newpw1]
+      @newpw2=params[:newpw2]
+      @oldpw = params[:oldpw]
+      if @newpw1 != @newpw2
+	      redirect_to :change_password, :notice=>'Passwords are not equal'
+	      return
+      end
+      if User.authenticate(@user.email,@oldpw)
+	      @user.password=@newpw1
+	      @user.save
+	      redirect_to '/admin/index',:notice=>'Password changed.'
+	      return
+      else
+	      redirect_to '/admin/change_password', :notice=>'Invalid password.'
+	      return
+      end
+    end
+  end
+      
+
+  def random_password(size = 8)
+    chars = (('a'..'z').to_a + ('0'..'9').to_a) - %w(i o 0 1 l 0)
+    (1..size).collect{|a| chars[rand(chars.size)] }.join
+  end
 
   def home
     if current_user.nil?

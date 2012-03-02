@@ -3,104 +3,82 @@
 <head>
   <title>Bookit4pg</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag "vba" %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "vba" %>
   <%= csrf_meta_tags %>
-</head 
+</head>
 <body>
-	<div id="fb-root"></div>
-	
-	
 	<div class="heading">
-		
-	<div id="leftside">
-		
-				<%=link_to "Home", :home %>
-				
-				<% if !current_user.nil? %>
-	  				<%=link_to "Logout", :logout  %>
-				<% else %> 
-	  				<%=link_to "Login", :login  %>
-				<% end %>
-				
-				<% if !current_user.nil? && (current_user.login == "mstoth") %>
-	  				<%= link_to "Admin", "/admins/index" %>
-				<% else %>
-	
-				<% end %>
-								
-	<% if Group.all.length > 0 %>
-	<% g=Group.where(:picture_file_name=>nil) %>
-	<% group_array = Group.all - g %>
-	<% sel = rand(group_array.length) %>
-	<% group = group_array[sel] %>
-	
-	<%= image_tag group.picture.url(:medium) %>
-	<br/>
-	<div id="caption">
-	<%= link_to group.title, group %><br/><br/>
-	<% end %>
-	
-	</div>
+		<div id="leftside">
+			<%=link_to "Home", :home %>
+			<% if !current_user.nil? %>
+				<%=link_to "Logout", :logout  %>
+			<% else %> 
+				<%=link_to "Login", :login  %>
+			<% end %>
+			<% if !current_user.nil? && (current_user.login == "mstoth") %>
+				<%= link_to "Admin", "/admins/index" %>
+			<% end %>
+			<% if Group.all.length > 0 %>
+				<% g=Group.where(:picture_file_name=>nil) %>
+				<% group_array = Group.all - g %>
+				<% sel = rand(group_array.length) %>
+				<% group = group_array[sel] %>
+				<%= image_tag group.picture.url(:medium) %>
+				<br/>
+				<div id="caption">
+					<%= link_to group.title, group %><br/><br/>
+				</div>
+			<% end %>
 			
-	</div>
-	
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=143085459093289";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-	
-		
-	
+			<div id="social_left">
+				<%= link_to image_tag("/assets/wantaniphoneapp.png"), "http://my-iphone-app.com" %>
+			</div>
+		</div>
+
 	<div id="centertext">
-	<% if current_user.nil? %>
-	Virtual Booking Agent 
-	<% else %>
-	Virtual Booking Agent - Logged in as <%=current_user.login%>
-	<% end %>
-	
+		<% if current_user.nil? %>
+			Virtual Booking Agent 
+		<% else %>
+			Virtual Booking Agent - Logged in as <%=current_user.login%>
+		<% end %>
 	</div>
-	
 	
 	<div id="rightside">
-	<%= link_to "About", :about %>
-	<%= link_to "Help ", :help %>
-	<%= link_to "Forum", "http://virtualpianist.com/simplemachinesforum/index.php?board=5.0" %>
+		<%= link_to "About", :about %>
+		<%= link_to "Help ", :help %>
+		<%= link_to "Forum", "http://virtualpianist.com/simplemachinesforum/index.php?board=5.0" %>
 		
-	<% if Venue.all.length > 0 %>
-	<% v=Venue.where(:vpic_file_name=>nil) %>
-	<% venue_array = Venue.all - v %>
-	<% sel = rand(venue_array.length) %>
-	<% venue = venue_array[sel] %>
-	
-	<% if !venue.vpic_file_name.nil? %>
-<%= image_tag venue.vpic.url(:medium) %>
-<br/>
-<div id="caption">
-<%= link_to venue.name, venue %>
-</div>
+		<% if Venue.all.length > 0 %>
+			<% v=Venue.where(:vpic_file_name=>nil) %>
+			<% venue_array = Venue.all - v %>
+			<% sel = rand(venue_array.length) %>
+			<% venue = venue_array[sel] %>
+			<% if !venue.vpic_file_name.nil? %>
+				<%= image_tag venue.vpic.url(:medium) %>
+				<br/>
+				<div id="caption">
+					<%= link_to venue.name, venue %>
+				</div>
+			<% end %>
+		<% end %>
 
-<% end %>
-<% end %>
-
-<% if !current_user.nil? %>
-<div id="social_right"><table><tr><td>
-	Number of Concerts: </td><td><%= current_user.my_concerts.length %></td></tr><tr><td>
-	Number of Groups: </td><td> <%= current_user.groups.length %></td></tr><tr><td>
-	Number of Venues: </td><td> <%= current_user.venues.length %></td></tr></table>
-</div>
-<% end %>
+		<% if !current_user.nil? %>
+			<div id="social_right"><table><tr><td>
+				Number of Concerts: </td><td><%= current_user.my_concerts.length %></td></tr>
+				<tr><td>
+				Number of Groups: </td><td> <%= current_user.groups.length %></td></tr>
+				<tr><td>
+				Number of Venues: </td><td> <%= current_user.venues.length %>
+				</td></tr></table>
+			</div>
+		<% end %>
 	</div>
-	</div>
-<%= yield %>
-
-<div id="bottom">
+	</div>	
 	
-</div>
+	<%= yield %>
+
+	<div id="bottom">
+	</div>
 </body>
 </html>

@@ -1,0 +1,9 @@
+<br/><br/><div class="form_heading">Forgot Password</div>
+<div style="margin-left:30%"><br/>
+<%= form_tag('/agent/forgot') do %>
+  <label for="email">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:</label>
+  <%= text_field_tag :email, params[:email] %> 
+
+  <%= submit_tag "Reset Password" %>
+<% end %>
+</div>

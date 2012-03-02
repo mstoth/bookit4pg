@@ -7,7 +7,12 @@ Bookit4pg::Application.routes.draw do
   get 'admins/venues'
   get 'admins/concerts'
   
+  get 'agent/forgot'
+  post 'agent/forgot'
+  
   resources :venues
+  resources :password_resets
+  post 'password_resets/create'
   
   get "groups/join"
   resources :groups

@@ -3,6 +3,10 @@ html {
 	background-image: url("/assets/paper.gif") ;
 }
 
+body {
+	background-image: url("/assets/paper.gif") ;
+}
+
 /* css for timepicker */
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
 .ui-timepicker-div dl { text-align: left; }
@@ -39,11 +43,6 @@ html {
 img.light
 {
 opacity:0.4;
-filter:alpha(opacity=40); /* For IE8 and earlier */
-}
-
-#leftside {
-	background-image: "paper.gif";
 }
 
 .heading #leftside { float:left; 
@@ -51,8 +50,17 @@ filter:alpha(opacity=40); /* For IE8 and earlier */
   background-color:silver;
 }
 
-.heading #leftside img { margin-top:40px; width:100% }
-.heading #rightside img { margin-top:40px; width:100% }
+.heading #leftside img { 
+	margin-top:40px; 
+	width:95%;
+	margin-left:2.5%;
+}
+
+.heading #rightside img { 
+	margin-top:40px; 
+	width:95%;
+	margin-left:2.5%;
+}
 
 .heading #centertext { height:50px; 
   float:left; text-align:center; 
@@ -95,6 +103,14 @@ filter:alpha(opacity=40); /* For IE8 and earlier */
 }
 .heading table { padding:10px; }
 
+.content #leftside {
+	
+}
+
+#leftside {
+	width:25%;
+}
+
 .form_heading { 
   font-family:Arnoldboecklin, fantasy; 
   font-size:14pt; 
@@ -122,6 +138,12 @@ filter:alpha(opacity=40); /* For IE8 and earlier */
 
 #social_right td {
 	padding:5px;
+}
+
+#social_left {
+	position:absolute;
+	bottom:10px;
+	width:25%;
 }
 #social_right {
 	position:absolute;
@@ -196,9 +218,9 @@ table.home {
   padding:5px;
  }
 
-a.home:hover {
-	color: #000; 
-	background-color: #fff;
+.home a:hover {
+	color: #666; 
+	background-color: #eee;
 }
 
 table.home td { 
