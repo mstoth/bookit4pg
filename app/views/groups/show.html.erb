@@ -73,12 +73,11 @@
 <div id="notes">
 	Concerts offered by this group:<br/>
 	<% @group.concerts.each do |u| %>
-	<%= link_to u.title, u %><br/>
-	<% end %>
-	<br/>
-	Members:<br/>
-	<% @group.users.each do |u| %>
-	  <%= u.login %> - <%= mail_to u.email %><br/>
+	  <% if current_user.nil? %>
+	    <%= link_to u.title, u.webpage %><br/>
+	  <% else %>
+	    <%= link_to u.title, u %><br/>
+	  <% end %>
 	<% end %>
 </div>
 	

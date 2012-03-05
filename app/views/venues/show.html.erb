@@ -74,7 +74,7 @@
 <br/>
 <% if @concerts.length > 0 %>
 	<% @concerts.each do |c| %>
-		<%= link_to c.title, c %><br/>
+		<%= link_to c.title, c.webpage %><br/>
 	<% end %>
 <% end %>
 </div>

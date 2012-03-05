@@ -1,5 +1,7 @@
 <br/><br/><p id="notice"><%= notice %></p>
-
+<div class="center">
+<%= image_tag @group.picture.url(:medium) %>
+</div>
 <table class="center">
 <tr><td>
   <b>Title:</b>
@@ -44,12 +46,12 @@
 <tr><td>
   <b>Website:</b>
 </td><td>
-  <%= link_to @group.website, @group.website %>
+  <%= link_to "Group Description", @group.website %>
 </td></tr>
 <tr><td>
   <b>Email:</b>
 </td><td>
-  <%= @group.email %>
+  <%= mail_to @group.email, @group.email %>
 </td></tr>
 </table>
 <br/>
@@ -57,18 +59,26 @@
 <div id="footerlinks">
 <% if current_user.groups.include? @group %>
 <%= link_to 'Edit', edit_group_path(@group) %>  | 
+
 <% end %>
 <% if @group.locked == false %>
 <%= link_to 'Join', "/users/join_group/#{@group.id}" %> | 
 <% end %>
+<% if current_user.groups.include? @group %>
 <%= link_to 'Leave', "/users/leave_group/#{@group.id}" %>
+<% end %>
 </div>
 <% end %>
 <br/>
 <div id="notes">
+	Concerts offered by this group:<br/>
+	<% @group.concerts.each do |u| %>
+	<%= link_to u.title, u %><br/>
+	<% end %>
+	<br/>
 	Members:<br/>
 	<% @group.users.each do |u| %>
-	<%= u.login %>&nbsp;<%= u.email %>
+	  <%= u.login %> - <%= mail_to u.email %><br/>
 	<% end %>
 </div>
 	
