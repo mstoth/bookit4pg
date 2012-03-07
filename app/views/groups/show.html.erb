@@ -70,14 +70,19 @@
 </div>
 <% end %>
 <br/>
+<% bc=[] %>
 <div id="notes">
 	Concerts offered by this group:<br/>
 	<% @group.concerts.each do |u| %>
+	  <% if u.offer %>
 	  <% if current_user.nil? %>
 	    <%= link_to u.title, u.webpage %><br/>
 	  <% else %>
 	    <%= link_to u.title, u %><br/>
 	  <% end %>
+	  <% else %>
+	    <% bc < u %>
+	  <% end %>
 	<% end %>
 </div>
-	
+
