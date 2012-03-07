@@ -10,14 +10,14 @@
 <body>
 	<div class="heading">
 		<div id="leftside">
-			<%=link_to image_tag("/assets/robotsmall.png", :class=>"homebutton"), :home %>
+			<%=link_to "Home", :home %>
 			<% if !current_user.nil? %>
-				<%=link_to "Logout", :logout, :class=>"button"  %>
+				<%=link_to "Logout", :logout  %>
 			<% else %> 
-				<%=link_to "Login", :login, :class=>"button"  %>
+				<%=link_to "Login", :login  %>
 			<% end %>
 			<% if !current_user.nil? && (current_user.login == "mstoth") %>
-				<%= link_to "Admin", "/admins/index", :class=>"button" %>
+				<%= link_to "Admin", "/admins/index" %>
 			<% end %>
 			<% if Group.all.length > 0 %>
 				<% g=Group.where(:picture_file_name=>nil) %>
@@ -32,6 +32,7 @@
 			<% end %>
 			
 			<div id="social_left">
+				<%= link_to image_tag("/assets/wantaniphoneapp.png"), "http://my-iphone-app.com" %>
 			</div>
 		</div>
 
@@ -74,7 +75,7 @@
 		<% end %>
 	</div>
 	</div>	
-
+	
 	<%= yield %>
 
 	<div id="bottom">
