@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     @venue = Venue.find(params[:id])
     current_user.venues << @venue
     current_user.save
-    redirect_to edit_venue_path(@venue), :notice=>"You are now connected to #{@venue.name}. Please edit the venue."
+    redirect_to edit_venue_path(@venue), :notice=>"Please make sure all the information is correct."
   end
     
   def leave_venue
