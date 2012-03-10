@@ -27,6 +27,14 @@ class UserMailer < ActionMailer::Base
     mail(:to=>user.email, :subject => "A new concert is being offered at Virtual Booking Agent.")
   end
   
+  def newgroup(group,user)
+    @group=group
+    @user=user
+    @stop_notify = "http://virtualbookingagent.com/users/stop_notification?id=#{@user.id}"
+    @url = "http://virtualbookingagent.com"
+    mail(:to=>@user.email, :subject=>'New group added to Virtual Booking Agent')
+  end
+  
   def send_password(user,new_password) 
     @user = user
     @new_password=new_password

@@ -55,9 +55,23 @@ class AgentController < ApplicationController
       redirect_to user_sessions_new_path
       return
     end
+    @booked=[]
+    @unbooked=[]
     @group = current_user.groups.first
     if !@group.nil?
       @group_id=@group.id
+      @groups = current_user.groups
+      if @groups.length > 0
+        @groups.each do |g|
+          g.concerts.each do |c|
+            if c.offer
+              @unbooked << c
+            else
+              @booked << c
+            end
+          end
+        end
+      end
     end
     @venue = current_user.venues.first
     if  !@venue.nil?

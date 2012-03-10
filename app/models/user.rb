@@ -18,13 +18,17 @@ class User < ActiveRecord::Base
     g=Group.find(id)
     self.groups << g
   end
-  
-  def my_concerts
+    
+  # if offer = true, returns non-booked concerts, i.e. offerings. 
+  # if offer = false, returns booked concerts. 
+  def my_concerts(offer=true)
     groups=self.groups
     @concerts = []
     groups.each do |g|
       g.concerts.each do |c|
-        @concerts << c
+        if c.offer==offer
+          @concerts << c
+        end
       end
     end
     @concerts

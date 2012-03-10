@@ -60,8 +60,9 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-	current_user.groups << @group
-	current_user.save
+	      current_user.groups << @group
+	      current_user.save
+	      send_group_announcement(@group)
         format.html { redirect_to(@group, :notice => 'Group was successfully created.') }
         format.xml  { render :xml => @group, :status => :created, :location => @group }
       else
@@ -100,6 +101,15 @@ class GroupsController < ApplicationController
   end
   
   private
+  
+  def send_group_announcement(g)
+    user_list = User.near(g,Bookit4pg::Application::SEARCH_RANGE)
+    user_list.each do |u|
+      if !u.nil? && u.notify
+        UserMailer.newgroup(g,u).deliver
+      end
+    end
+  end
   
   def require_mst_or_owner
     if current_user.login == 'mstoth'

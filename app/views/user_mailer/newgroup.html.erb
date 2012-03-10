@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h2>A New Group has joined Virtual Booking Agent</h2>
+    <p>
+		The Group is <%= @group.title %><br/>
+		You can view details about the group <%= link_to "HERE",@group.website %>
+    </p>
+    <p>Note: If you want to stop getting email about Virtual Booking Agent, go to <%= link_to "HERE", @stop_notify %> </p>
+  </body>
+</html>

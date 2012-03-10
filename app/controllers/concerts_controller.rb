@@ -25,17 +25,8 @@ class ConcertsController < ApplicationController
   # GET /concerts
   # GET /concerts.xml
   def index
-    @concerts = current_user.my_concerts
-    @booked_concerts = []
-    @concert_list = []
-    @concerts.each do |c|
-      if c.offer == false
-        @booked_concerts << c
-      else
-        @concert_list << c
-      end
-    end
-    @concerts = @concert_list
+    @booked_concerts = current_user.my_concerts(false)
+    @concerts = current_user.my_concerts(true)
     
     @venues = Venue.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
     @groups = current_user.groups
