@@ -14,6 +14,14 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
+  def guest
+    @user = User.new
+    @user.login="Guest" + rand.to_s
+    @user.password=@user.login
+  	@user.password_confirmation=@user.login
+  	@user.email=@user.login + "@virtualpianist.com"
+  end
+  
   def groups_near_me
     @groups = Group.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
     @groups.sort! { |a,b| a.title <=> b.title }
@@ -72,10 +80,18 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "Account registered!"
+      if @user.login[0..4]=="Guest"
+        flash[:notice]="Welcome Guest"
+      else
+        flash[:notice] = "Account registered!"
+      end
       redirect_back_or_default :home
     else
-      render :action => :new
+      if @user.login[0..4]=="Guest"
+        render :action=>:guest
+      else
+        render :action => :new
+      end
     end
   end
 

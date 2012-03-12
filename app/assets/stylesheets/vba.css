@@ -56,16 +56,6 @@ opacity:0.4;
 	margin-left:2.5%;
 }
 
-.heading #leftside a.homebutton:hover {
-	background:transparent;	
-}
-
- .heading #leftside img.homebutton {
-	margin-top:-20px;
-	width:79px; 
-	height:40px;
-}
-
 .heading #leftside #social_left a:hover {
 	color: #666; 
 	background-color: #eee;

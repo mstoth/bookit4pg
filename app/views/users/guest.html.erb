@@ -1,0 +1,37 @@
+<div class="form_heading">
+<br/><br/>
+Welcome Guest! Enter your Zip Code.
+</div>
+
+<%= form_for @user, :url => account_path do |f| %>
+<% if @user.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@user.errors.count, "error") %> prohibited this venue from being saved:</h2>
+
+		<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+<table class="center">
+	<tr>
+		<td>
+			Zip Code: 
+		</td>
+		<td>
+			<%= f.text_field :zip %>
+		</td>
+	</tr>
+</table>
+<%= f.hidden_field :login %>
+<%= f.hidden_field :email %>
+<%= f.hidden_field :password %>
+<%= f.hidden_field :password_confirmation %>
+<div id="submit">
+<%= f.submit "Enter" %>
+</div>
+<% end %>
+

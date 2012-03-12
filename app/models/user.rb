@@ -1,12 +1,20 @@
 class User < ActiveRecord::Base
   has_many :venues
   has_and_belongs_to_many :groups
-  acts_as_authentic
+  
+  acts_as_authentic do |c|
+    c.logged_in_timeout = 10.minutes # default is 10.minutes
+  end
+  
   geocoded_by :zip
   after_validation :geocode
   validates_presence_of :zip
   validates_uniqueness_of :login
   validates_presence_of :login
+  validates_format_of :zip,
+  :message => "only the 5-digit zip code is needed1",
+  :with => /^[0-9]{5}$/
+  
   
   def deliver_password_reset_instructions!
     reset_perishable_token!

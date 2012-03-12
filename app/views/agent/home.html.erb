@@ -3,45 +3,75 @@
 <table class="home">
 <tbody>
 <tr>
-<% if @venue_id.nil? %>
-<td><%= image_tag("concerts_near_me.png") %></td>
-<% else %>
-<td style="vertical-align: top;"><%= link_to image_tag("concerts_near_me.png", :id=>"concerts_near_me"), concerts_near_path(@venue_id), :class=>"home" %><br>
-</td>
-<% end %>
-<td style="vertical-align: top;"><%= link_to image_tag("manage_venues.png", :id=>"manage_venues"), venues_path, :class=>"home" %><br>
-</td>
-</tr>
-
-<tr>
-	<td><%= link_to image_tag("join_group.png", :id=>"join_group"), '/groups/join', :class=>"home" %></td>
-	<% if current_user.groups.length == 0 %>
-		<td style="vertical-align: top;"><%= image_tag("manage_concerts.jpg", :alpha=>".2") %></td>
+	<% if @venue_id.nil? %>
+	  <td><%= image_tag("concerts_near_me.png") %></td>
 	<% else %>
-		<td style="vertical-align: top;"><%= link_to  image_tag("manage_concerts.jpg", 
-				:id=>"manage_concerts"), concerts_path, :class=>"home" %>
-		</td>
+	  <% if current_user.login[0..4]=="Guest"%>
+	    <td><%= image_tag("concerts_near_me.png") %></td>
+	  <% else %>
+	    <td style="vertical-align: top;"><%= link_to image_tag("concerts_near_me.png", :id=>"concerts_near_me"),
+			concerts_near_path(@venue_id), :class=>"home" %><br>
+	    </td>
+	  <% end %>
+	<% end %>
+
+	<% if current_user.login[0..4]=="Guest" %>
+	  <td><%= image_tag("manage_venues.png") %></td>
+	<% else %>
+	  <td style="vertical-align: top;"><%= link_to image_tag("manage_venues.png", :id=>"manage_venues"), venues_path, 
+			:class=>"home" %></td>
 	<% end %>
 </tr>
 
+<!-- Second Row -->
 <tr>
-<td style="vertical-align: top;"><%= link_to image_tag("profile.png", :id=>"profile"), current_user, :class=>"home" %><br>
-</td>
-<td style="vertical-align: top;"><%= link_to image_tag("manage_groups.png", :id=>"manage_groups"), groups_path, :class=>"home" %><br/>
-</td>
+	<% if current_user.login[0..4]=="Guest" %>
+	  <td><%= image_tag("join_group.png") %></td>
+	  <td><%= image_tag("manage_concerts.jpg") %></td>
+	<% else %>
+	  <td><%= link_to image_tag("join_group.png", :id=>"join_group"), '/groups/join', :class=>"home" %></td>
+	  <% if current_user.groups.length == 0 %>
+		<td style="vertical-align: top;"><%= image_tag("manage_concerts.jpg", :alpha=>".2") %></td>
+	  <% else %>
+		<td style="vertical-align: top;"><%= link_to  image_tag("manage_concerts.jpg", 
+				:id=>"manage_concerts"), concerts_path, :class=>"home" %>
+		</td>
+	  <% end %>
+	<% end %>
 </tr>
+
+<!-- Third Row -->
+<tr>
+	<% if current_user.login[0..4]=="Guest" %>
+		<td><%= image_tag("profile.png") %></td>
+		<td><%= image_tag("manage_groups.png") %></td>
+	<% else %>
+		<td style="vertical-align: top;">
+			<%= link_to image_tag("profile.png", :id=>"profile"), current_user, :class=>"home" %></td>
+		<td style="vertical-align: top;"><%= link_to image_tag("manage_groups.png", :id=>"manage_groups"), 
+			groups_path, :class=>"home" %></td>
+	<% end %>
+</tr>
+
+
 <tr>
 	<td style="vertical-align: top;"><%= link_to image_tag("groups_near_me.png", 
-			:id=>"groups_near_me"), "/users/groups_near_me", :class=>"home" %>
-</td>
-<td style="vertical-align: top;"><%= link_to image_tag("venues_near_me.png", :id=>"venues_near_me"), "/users/venues_near_me", :class=>"home" %><br/>
-</td>
+			:id=>"groups_near_me"), "/users/groups_near_me", :class=>"home" %></td>
+	<td style="vertical-align: top;"><%= link_to image_tag("venues_near_me.png", :id=>"venues_near_me"),
+			"/users/venues_near_me", :class=>"home" %></td>
 </tr>
+
 </tbody>
 </table>
 	
-<% if @group_id.nil? && @venue_id.nil? %>
+<% if @group_id.nil? && @venue_id.nil? && current_user.login[0..4]!="Guest" %>
 <div id="notes">
 You should either add a group if you are a performer or add a venue if you are a performing venue. 
 </div>
 <% end %>
+
+<% if current_user.login[0..4]=="Guest" %>
+	<div id="notes">
+		As a guest you can only search for groups and venues near you.  Other features are available after registering.
+	</div>
+<% end 	%>

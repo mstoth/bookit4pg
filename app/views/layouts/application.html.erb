@@ -10,14 +10,14 @@
 <body>
 	<div class="heading">
 		<div id="leftside">
-			<%=link_to image_tag("/assets/robotsmall.png", :class=>"homebutton"), :home %>
+			<%=link_to "Home", :home %>
 			<% if !current_user.nil? %>
-				<%=link_to "Logout", :logout, :class=>"button"  %>
+				<%=link_to "Logout", :logout  %>
 			<% else %> 
-				<%=link_to "Login", :login, :class=>"button"  %>
+				<%=link_to "Login", :login  %>
 			<% end %>
 			<% if !current_user.nil? && (current_user.login == "mstoth") %>
-				<%= link_to "Admin", "/admins/index", :class=>"button" %>
+				<%= link_to "Admin", "/admins/index" %>
 			<% end %>
 			<% if Group.all.length > 0 %>
 				<% g=Group.where(:picture_file_name=>nil) %>
@@ -39,7 +39,11 @@
 		<% if current_user.nil? %>
 			Virtual Booking Agent 
 		<% else %>
-			Virtual Booking Agent - Logged in as <%=current_user.login%>
+			<% if current_user.login[0..4] == "Guest" %>
+				Virtual Booking Agent - Logged in as Guest
+			<% else %>
+				Virtual Booking Agent - Logged in as <%=current_user.login%>
+			<% end %>
 		<% end %>
 	</div>
 	

@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
   before_filter :require_mst_or_owner, :only=>[:edit, :destroy, :update]
+  before_filter :require_not_guest, :except=>[:index, :show]
+  
   # GET /groups/join
   def join
     @groups = Group.near(current_user,Bookit4pg::Application::SEARCH_RANGE)
@@ -123,4 +125,11 @@ class GroupsController < ApplicationController
     return false
   end
   
+  def require_not_guest
+    if current_user.login[0..4]=="Guest"
+      render '/agent/error', :notice=>"You do not have permission as a Guest."
+      return false
+    end
+    return true
+  end
 end

@@ -22,7 +22,16 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
+    c=""
+    if current_user.login[0..4]=="Guest"
+      c=current_user
+    end
     current_user_session.destroy
+    if c!=""
+      if c.login[0..4]=="Guest"
+        c.destroy
+      end
+    end
     flash[:notice] = "Logout successful!"
     redirect_back_or_default new_user_session_url
   end

@@ -14,6 +14,8 @@ Bookit4pg::Application.routes.draw do
   resources :password_resets
   post 'password_resets/create'
   
+  get "users/guest"
+  
   get "groups/join"
   resources :groups
 

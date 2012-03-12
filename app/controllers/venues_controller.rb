@@ -1,4 +1,7 @@
 class VenuesController < ApplicationController
+  before_filter :require_not_guest, :except=>[:index, :show]
+  before_filter :require_mst_or_owner, :only=>[:edit, :destroy, :update]
+  
   # GET /venues
   # GET /venues.xml
   def index
@@ -145,6 +148,14 @@ class VenuesController < ApplicationController
     end
     render '/agent/error', :notice=>"You do not have permission." 
     return false
+  end
+  
+  def require_not_guest
+    if current_user.login[0..4]=="Guest"
+      render '/agent/error', :notice=>"You do not have permission as a Guest."
+      return false
+    end
+    return true
   end
   
 end
